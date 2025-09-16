@@ -12,7 +12,7 @@ var Header = function Header(_ref) {
     month: 'long',
     day: 'numeric'
   });
-  var appVersion = "1.2.9"; // <-- Hier die Versionsnummer
+  var appVersion = "1.3.0"; // <-- Hier die Versionsnummer
 
   return /*#__PURE__*/React.createElement("header", {
     className: "header"
