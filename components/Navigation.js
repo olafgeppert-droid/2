@@ -1,50 +1,60 @@
 "use strict";
 
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+var _jsxRuntime = require("react/jsx-runtime");
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-const Navigation = _ref => {
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+var Navigation = function Navigation(_ref) {
   var _masterData$schools$l;
-  let {
-    isOpen,
-    students,
-    selectedStudent,
-    selectedDate,
-    filters,
-    masterData,
-    onStudentSelect,
-    onDateSelect,
-    onFilterChange,
-    onShowStats,
-    onShowSettings,
-    onShowHelp
-  } = _ref;
-  const [searchTerm, setSearchTerm] = _react.default.useState(filters.search);
-  const [localFilters, setLocalFilters] = _react.default.useState(filters);
-  const handleSearchChange = e => {
-    const value = e.target.value;
+  var isOpen = _ref.isOpen,
+    students = _ref.students,
+    selectedStudent = _ref.selectedStudent,
+    selectedDate = _ref.selectedDate,
+    filters = _ref.filters,
+    masterData = _ref.masterData,
+    onStudentSelect = _ref.onStudentSelect,
+    onDateSelect = _ref.onDateSelect,
+    onFilterChange = _ref.onFilterChange,
+    onShowStats = _ref.onShowStats,
+    onShowSettings = _ref.onShowSettings,
+    onShowHelp = _ref.onShowHelp;
+  var _React$useState = _react["default"].useState(filters.search),
+    _React$useState2 = _slicedToArray(_React$useState, 2),
+    searchTerm = _React$useState2[0],
+    setSearchTerm = _React$useState2[1];
+  var _React$useState3 = _react["default"].useState(filters),
+    _React$useState4 = _slicedToArray(_React$useState3, 2),
+    localFilters = _React$useState4[0],
+    setLocalFilters = _React$useState4[1];
+  var handleSearchChange = function handleSearchChange(e) {
+    var value = e.target.value;
     setSearchTerm(value);
     onFilterChange(_objectSpread(_objectSpread({}, localFilters), {}, {
       search: value
     }));
   };
-  const handleFilterChange = (filterType, value) => {
-    const newFilters = _objectSpread(_objectSpread({}, localFilters), {}, {
-      [filterType]: value
-    });
+  var handleFilterChange = function handleFilterChange(filterType, value) {
+    var newFilters = _objectSpread(_objectSpread({}, localFilters), {}, _defineProperty({}, filterType, value));
     setLocalFilters(newFilters);
     onFilterChange(newFilters);
   };
-  const clearFilters = () => {
-    const clearedFilters = {
+  var clearFilters = function clearFilters() {
+    var clearedFilters = {
       search: '',
       schoolYear: '',
       school: '',
@@ -54,119 +64,181 @@ const Navigation = _ref => {
     setLocalFilters(clearedFilters);
     onFilterChange(clearedFilters);
   };
-  const hasActiveFilters = localFilters.search || localFilters.schoolYear || localFilters.school || localFilters.className;
-  return /*#__PURE__*/_react.default.createElement("nav", {
-    className: "nav ".concat(isOpen ? 'open' : '')
-  }, /*#__PURE__*/_react.default.createElement("h3", null, "Navigation"), /*#__PURE__*/_react.default.createElement("div", {
-    className: "search-filter"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "filter-group"
-  }, /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    className: "search-input",
-    placeholder: "\uD83D\uDD0D Kind suchen...",
-    value: searchTerm,
-    onChange: handleSearchChange
-  })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "filter-group"
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    className: "filter-label"
-  }, "Schuljahr"), /*#__PURE__*/_react.default.createElement("select", {
-    className: "filter-select",
-    value: localFilters.schoolYear,
-    onChange: e => handleFilterChange('schoolYear', e.target.value)
-  }, /*#__PURE__*/_react.default.createElement("option", {
-    value: ""
-  }, "Alle Schuljahre"), masterData.schoolYears && masterData.schoolYears.map(year => /*#__PURE__*/_react.default.createElement("option", {
-    key: year,
-    value: year
-  }, year)))), /*#__PURE__*/_react.default.createElement("div", {
-    className: "filter-group"
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    className: "filter-label"
-  }, "Schule"), /*#__PURE__*/_react.default.createElement("select", {
-    className: "filter-select",
-    value: localFilters.school,
-    onChange: e => handleFilterChange('school', e.target.value)
-  }, /*#__PURE__*/_react.default.createElement("option", {
-    value: ""
-  }, "Alle Schulen"), masterData.schools && Object.keys(masterData.schools).map(school => /*#__PURE__*/_react.default.createElement("option", {
-    key: school,
-    value: school
-  }, school)))), /*#__PURE__*/_react.default.createElement("div", {
-    className: "filter-group"
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    className: "filter-label"
-  }, "Klasse"), /*#__PURE__*/_react.default.createElement("select", {
-    className: "filter-select",
-    value: localFilters.className,
-    onChange: e => handleFilterChange('className', e.target.value),
-    disabled: !localFilters.school
-  }, /*#__PURE__*/_react.default.createElement("option", {
-    value: ""
-  }, "Alle Klassen"), localFilters.school && ((_masterData$schools$l = masterData.schools[localFilters.school]) === null || _masterData$schools$l === void 0 ? void 0 : _masterData$schools$l.map(className => /*#__PURE__*/_react.default.createElement("option", {
-    key: className,
-    value: className
-  }, className))))), /*#__PURE__*/_react.default.createElement("div", {
-    className: "filter-group"
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    className: "filter-label"
-  }, "Tag"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "date",
-    className: "filter-select",
-    value: selectedDate,
-    onChange: e => onDateSelect(e.target.value)
-  })), hasActiveFilters && /*#__PURE__*/_react.default.createElement("button", {
-    className: "button button-warning",
-    onClick: clearFilters,
-    style: {
-      width: '100%',
-      marginTop: '0.5rem'
-    }
-  }, "\u274C Filter l\xF6schen")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "students-section"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "section-header"
-  }, /*#__PURE__*/_react.default.createElement("h4", null, "Kind"), /*#__PURE__*/_react.default.createElement("span", {
-    className: "student-count"
-  }, students.length)), students.length === 0 ? /*#__PURE__*/_react.default.createElement("div", {
-    className: "empty-state"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Keine Kinder gefunden"), hasActiveFilters && /*#__PURE__*/_react.default.createElement("button", {
-    className: "button",
-    onClick: clearFilters,
-    style: {
-      marginTop: '10px',
-      width: '100%'
-    }
-  }, "Filter zur\xFCcksetzen")) : /*#__PURE__*/_react.default.createElement("ul", {
-    className: "students-list"
-  }, students.map(student => /*#__PURE__*/_react.default.createElement("li", {
-    key: student.id,
-    className: "student-item ".concat((selectedStudent === null || selectedStudent === void 0 ? void 0 : selectedStudent.id) === student.id ? 'selected' : ''),
-    onClick: () => onStudentSelect(student)
-  }, /*#__PURE__*/_react.default.createElement("span", {
-    className: "student-avatar"
-  }, student.gender === 'weiblich' ? '👧' : student.gender === 'männlich' ? '👦' : '👤'), /*#__PURE__*/_react.default.createElement("div", {
-    className: "student-info"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "student-name"
-  }, student.name), /*#__PURE__*/_react.default.createElement("div", {
-    className: "student-details"
-  }, student.className)))))), /*#__PURE__*/_react.default.createElement("div", {
-    className: "nav-footer"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "footer-section"
-  }, /*#__PURE__*/_react.default.createElement("h4", null, "Aktionen"), /*#__PURE__*/_react.default.createElement("button", {
-    className: "button button-info",
-    onClick: onShowStats
-  }, "\uD83D\uDCCA Statistiken"), /*#__PURE__*/_react.default.createElement("button", {
-    className: "button button-info",
-    onClick: onShowSettings
-  }, "\u2699\uFE0F Einstellungen"), /*#__PURE__*/_react.default.createElement("button", {
-    className: "button button-info",
-    onClick: onShowHelp
-  }, "\u2753 Hilfe")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "app-info"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Willkommen! W\xE4hlen Sie ein Kind aus der Liste."))));
+  var hasActiveFilters = localFilters.search || localFilters.schoolYear || localFilters.school || localFilters.className;
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("nav", {
+    className: "nav ".concat(isOpen ? 'open' : ''),
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h3", {
+      children: "Navigation"
+    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      className: "search-filter",
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        className: "filter-group",
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+          type: "text",
+          className: "search-input",
+          placeholder: "\uD83D\uDD0D Kind suchen...",
+          value: searchTerm,
+          onChange: handleSearchChange
+        })
+      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        className: "filter-group",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
+          className: "filter-label",
+          children: "Schuljahr"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("select", {
+          className: "filter-select",
+          value: localFilters.schoolYear,
+          onChange: function onChange(e) {
+            return handleFilterChange('schoolYear', e.target.value);
+          },
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
+            value: "",
+            children: "Alle Schuljahre"
+          }), masterData.schoolYears && masterData.schoolYears.map(function (year) {
+            return /*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
+              value: year,
+              children: year
+            }, year);
+          })]
+        })]
+      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        className: "filter-group",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
+          className: "filter-label",
+          children: "Schule"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("select", {
+          className: "filter-select",
+          value: localFilters.school,
+          onChange: function onChange(e) {
+            return handleFilterChange('school', e.target.value);
+          },
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
+            value: "",
+            children: "Alle Schulen"
+          }), masterData.schools && Object.keys(masterData.schools).map(function (school) {
+            return /*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
+              value: school,
+              children: school
+            }, school);
+          })]
+        })]
+      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        className: "filter-group",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
+          className: "filter-label",
+          children: "Klasse"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("select", {
+          className: "filter-select",
+          value: localFilters.className,
+          onChange: function onChange(e) {
+            return handleFilterChange('className', e.target.value);
+          },
+          disabled: !localFilters.school,
+          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
+            value: "",
+            children: "Alle Klassen"
+          }), localFilters.school && ((_masterData$schools$l = masterData.schools[localFilters.school]) === null || _masterData$schools$l === void 0 ? void 0 : _masterData$schools$l.map(function (className) {
+            return /*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
+              value: className,
+              children: className
+            }, className);
+          }))]
+        })]
+      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        className: "filter-group",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
+          className: "filter-label",
+          children: "Tag"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+          type: "date",
+          className: "filter-select",
+          value: selectedDate,
+          onChange: function onChange(e) {
+            return onDateSelect(e.target.value);
+          }
+        })]
+      }), hasActiveFilters && /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+        className: "button button-warning",
+        onClick: clearFilters,
+        style: {
+          width: '100%',
+          marginTop: '0.5rem'
+        },
+        children: "\u274C Filter l\xF6schen"
+      })]
+    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      className: "students-section",
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        className: "section-header",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h4", {
+          children: "Kind"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+          className: "student-count",
+          children: students.length
+        })]
+      }), students.length === 0 ? /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        className: "empty-state",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+          children: "Keine Kinder gefunden"
+        }), hasActiveFilters && /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+          className: "button",
+          onClick: clearFilters,
+          style: {
+            marginTop: '10px',
+            width: '100%'
+          },
+          children: "Filter zur\xFCcksetzen"
+        })]
+      }) : /*#__PURE__*/(0, _jsxRuntime.jsx)("ul", {
+        className: "students-list",
+        children: students.map(function (student) {
+          return /*#__PURE__*/(0, _jsxRuntime.jsxs)("li", {
+            className: "student-item ".concat((selectedStudent === null || selectedStudent === void 0 ? void 0 : selectedStudent.id) === student.id ? 'selected' : ''),
+            onClick: function onClick() {
+              return onStudentSelect(student);
+            },
+            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
+              className: "student-avatar",
+              children: student.gender === 'weiblich' ? '👧' : student.gender === 'männlich' ? '👦' : '👤'
+            }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+              className: "student-info",
+              children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+                className: "student-name",
+                children: student.name
+              }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+                className: "student-details",
+                children: student.className
+              })]
+            })]
+          }, student.id);
+        })
+      })]
+    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+      className: "nav-footer",
+      children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
+        className: "footer-section",
+        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h4", {
+          children: "Aktionen"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+          className: "button button-info",
+          onClick: onShowStats,
+          children: "\uD83D\uDCCA Statistiken"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+          className: "button button-info",
+          onClick: onShowSettings,
+          children: "\u2699\uFE0F Einstellungen"
+        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
+          className: "button button-info",
+          onClick: onShowHelp,
+          children: "\u2753 Hilfe"
+        })]
+      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+        className: "app-info",
+        children: /*#__PURE__*/(0, _jsxRuntime.jsx)("p", {
+          children: "Willkommen! W\xE4hlen Sie ein Kind aus der Liste."
+        })
+      })]
+    })]
+  });
 };
-var _default = exports.default = Navigation;
+var _default = exports["default"] = Navigation;
