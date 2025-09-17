@@ -1,5 +1,9 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
 var Toolbar = function Toolbar(_ref) {
   var selectedStudent = _ref.selectedStudent,
     selectedDate = _ref.selectedDate,
@@ -28,11 +32,11 @@ var Toolbar = function Toolbar(_ref) {
   }, "\u270F\uFE0F Kind bearbeiten/l\xF6schen"), /*#__PURE__*/React.createElement("button", {
     className: "button",
     onClick: onAddEntry,
-    disabled: !selectedStudent && !selectedDate
+    disabled: !selectedStudent || !selectedDate
   }, "\uD83D\uDCDD Protokoll anlegen"), /*#__PURE__*/React.createElement("button", {
     className: "button",
     onClick: onEditEntry,
-    disabled: !selectedStudent && !selectedDate
+    disabled: !selectedStudent || !selectedDate
   }, "\uD83D\uDD27 Protokoll bearbeiten/l\xF6schen")), /*#__PURE__*/React.createElement("div", {
     className: "toolbar-row"
   }, /*#__PURE__*/React.createElement("button", {
@@ -62,3 +66,4 @@ var Toolbar = function Toolbar(_ref) {
     disabled: !canRedo
   }, "\u21AA\uFE0F Wiederholen")));
 };
+var _default = exports["default"] = Toolbar;
