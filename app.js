@@ -1,23 +1,6 @@
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var _react = _interopRequireWildcard(require("react"));
-var _Header = _interopRequireDefault(require("./components/Header.js"));
-var _Toolbar = _interopRequireDefault(require("./components/Toolbar.js"));
-var _Navigation = _interopRequireDefault(require("./components/Navigation.js"));
-var _MainContent = _interopRequireDefault(require("./components/MainContent.js"));
-var _StudentModal = _interopRequireDefault(require("./components/StudentModal.js"));
-var _EntryModal = _interopRequireDefault(require("./components/EntryModal.js"));
-var _SettingsModal = _interopRequireDefault(require("./components/SettingsModal.js"));
-var _StatisticsModal = _interopRequireDefault(require("./components/StatisticsModal.js"));
-var _HelpModal = _interopRequireDefault(require("./components/HelpModal.js"));
-var _database = require("./database.js");
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t8 in e) "default" !== _t8 && {}.hasOwnProperty.call(e, _t8) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t8)) && (i.get || i.set) ? o(f, _t8, i) : f[_t8] = e[_t8]); return f; })(e, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -36,34 +19,40 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; } // Komponenten importieren
-// Utils / Datenbank-Funktionen importieren
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+// Hooks aus React holen
+var _React = React,
+  useState = _React.useState,
+  useEffect = _React.useEffect,
+  useCallback = _React.useCallback;
+
+// Hauptkomponente
 var App = function App() {
-  var _useState = (0, _react.useState)(null),
+  var _useState = useState(null),
     _useState2 = _slicedToArray(_useState, 2),
     db = _useState2[0],
     setDb = _useState2[1];
-  var _useState3 = (0, _react.useState)([]),
+  var _useState3 = useState([]),
     _useState4 = _slicedToArray(_useState3, 2),
     students = _useState4[0],
     setStudents = _useState4[1];
-  var _useState5 = (0, _react.useState)([]),
+  var _useState5 = useState([]),
     _useState6 = _slicedToArray(_useState5, 2),
     entries = _useState6[0],
     setEntries = _useState6[1];
-  var _useState7 = (0, _react.useState)(null),
+  var _useState7 = useState(null),
     _useState8 = _slicedToArray(_useState7, 2),
     selectedStudent = _useState8[0],
     setSelectedStudent = _useState8[1];
-  var _useState9 = (0, _react.useState)(new Date().toISOString().split('T')[0]),
+  var _useState9 = useState(new Date().toISOString().split('T')[0]),
     _useState0 = _slicedToArray(_useState9, 2),
     selectedDate = _useState0[0],
     setSelectedDate = _useState0[1];
-  var _useState1 = (0, _react.useState)('student'),
+  var _useState1 = useState('student'),
     _useState10 = _slicedToArray(_useState1, 2),
     viewMode = _useState10[0],
     setViewMode = _useState10[1];
-  var _useState11 = (0, _react.useState)({
+  var _useState11 = useState({
       search: '',
       schoolYear: '',
       school: '',
@@ -72,7 +61,7 @@ var App = function App() {
     _useState12 = _slicedToArray(_useState11, 2),
     filters = _useState12[0],
     setFilters = _useState12[1];
-  var _useState13 = (0, _react.useState)({
+  var _useState13 = useState({
       theme: 'light',
       fontSize: 16,
       inputFontSize: 16,
@@ -81,35 +70,32 @@ var App = function App() {
     _useState14 = _slicedToArray(_useState13, 2),
     settings = _useState14[0],
     setSettings = _useState14[1];
-  var _useState15 = (0, _react.useState)({
+  var _useState15 = useState({
       schoolYears: [],
       schools: {}
     }),
     _useState16 = _slicedToArray(_useState15, 2),
     masterData = _useState16[0],
     setMasterData = _useState16[1];
-  var _useState17 = (0, _react.useState)(null),
+  var _useState17 = useState(null),
     _useState18 = _slicedToArray(_useState17, 2),
     modal = _useState18[0],
     setModal = _useState18[1];
-  var _useState19 = (0, _react.useState)(false),
+  var _useState19 = useState(false),
     _useState20 = _slicedToArray(_useState19, 2),
     navOpen = _useState20[0],
     setNavOpen = _useState20[1];
-  var _useState21 = (0, _react.useState)([]),
+  var _useState21 = useState([]),
     _useState22 = _slicedToArray(_useState21, 2),
     history = _useState22[0],
     setHistory = _useState22[1];
-  var _useState23 = (0, _react.useState)(-1),
+  var _useState23 = useState(-1),
     _useState24 = _slicedToArray(_useState23, 2),
     historyIndex = _useState24[0],
     setHistoryIndex = _useState24[1];
-  var applySettings = function applySettings(settings) {
-    document.documentElement.setAttribute('data-theme', settings.theme);
-    document.documentElement.style.setProperty('--font-size', "".concat(settings.fontSize, "px"));
-    document.documentElement.style.setProperty('--input-font-size', "".concat(settings.inputFontSize, "px"));
-  };
-  (0, _react.useEffect)(function () {
+
+  // Datenbank initialisieren
+  useEffect(function () {
     var initDB = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
         var database, settingsData, masterDataLoaded, allStudents, _t;
@@ -118,7 +104,7 @@ var App = function App() {
             case 0:
               _context.p = 0;
               _context.n = 1;
-              return (0, _database.setupDB)();
+              return setupDB();
             case 1:
               database = _context.v;
               setDb(database);
@@ -134,7 +120,9 @@ var App = function App() {
               return database.get('masterData', 1);
             case 3:
               masterDataLoaded = _context.v;
-              if (masterDataLoaded) setMasterData(masterDataLoaded);
+              if (masterDataLoaded) {
+                setMasterData(masterDataLoaded);
+              }
               _context.n = 4;
               return database.getAll('students');
             case 4:
@@ -157,7 +145,14 @@ var App = function App() {
     }();
     initDB();
   }, []);
-  (0, _react.useEffect)(function () {
+  var applySettings = function applySettings(settings) {
+    document.documentElement.setAttribute('data-theme', settings.theme);
+    document.documentElement.style.setProperty('--font-size', "".concat(settings.fontSize, "px"));
+    document.documentElement.style.setProperty('--input-font-size', "".concat(settings.inputFontSize, "px"));
+  };
+
+  // Einträge laden
+  useEffect(function () {
     var loadEntries = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
         var entriesData, _t2;
@@ -177,7 +172,7 @@ var App = function App() {
                 break;
               }
               _context2.n = 2;
-              return (0, _database.getEntriesByStudentId)(db, selectedStudent.id);
+              return getEntriesByStudentId(db, selectedStudent.id);
             case 2:
               entriesData = _context2.v;
               _context2.n = 5;
@@ -188,7 +183,7 @@ var App = function App() {
                 break;
               }
               _context2.n = 4;
-              return (0, _database.getEntriesByDate)(db, selectedDate);
+              return getEntriesByDate(db, selectedDate);
             case 4:
               entriesData = _context2.v;
             case 5:
@@ -210,10 +205,10 @@ var App = function App() {
     }();
     loadEntries();
   }, [db, selectedStudent, selectedDate, viewMode]);
-  var filteredStudents = (0, _react.useCallback)(function () {
-    return (0, _database.filterStudents)(students, filters);
+  var filteredStudents = useCallback(function () {
+    return filterStudents(students, filters);
   }, [students, filters]);
-  var saveStudentHandler = /*#__PURE__*/function () {
+  var saveStudent = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(studentData) {
       var newStudent, _t3;
       return _regenerator().w(function (_context3) {
@@ -227,14 +222,14 @@ var App = function App() {
           case 1:
             _context3.p = 1;
             _context3.n = 2;
-            return (0, _database.saveStateForUndo)(db, history, setHistory, setHistoryIndex);
+            return saveStateForUndo(db, history, setHistory, setHistoryIndex);
           case 2:
             if (!studentData.id) {
               _context3.n = 4;
               break;
             }
             _context3.n = 3;
-            return (0, _database.updateStudent)(db, studentData);
+            return updateStudent(db, studentData);
           case 3:
             setStudents(students.map(function (s) {
               return s.id === studentData.id ? studentData : s;
@@ -243,7 +238,7 @@ var App = function App() {
             break;
           case 4:
             _context3.n = 5;
-            return (0, _database.addStudent)(db, studentData);
+            return addStudent(db, studentData);
           case 5:
             newStudent = _context3.v;
             setStudents([].concat(_toConsumableArray(students), [newStudent]));
@@ -260,7 +255,7 @@ var App = function App() {
         }
       }, _callee3, null, [[1, 7]]);
     }));
-    return function saveStudentHandler(_x) {
+    return function saveStudent(_x) {
       return _ref3.apply(this, arguments);
     };
   }();
@@ -278,17 +273,19 @@ var App = function App() {
           case 1:
             _context4.p = 1;
             _context4.n = 2;
-            return (0, _database.saveStateForUndo)(db, history, setHistory, setHistoryIndex);
+            return saveStateForUndo(db, history, setHistory, setHistoryIndex);
           case 2:
             _context4.n = 3;
-            return (0, _database.deleteStudent)(db, studentId);
+            return deleteStudent(db, studentId);
           case 3:
             success = _context4.v;
             if (success) {
               setStudents(students.filter(function (s) {
                 return s.id !== studentId;
               }));
-              if (selectedStudent && selectedStudent.id === studentId) setSelectedStudent(null);
+              if (selectedStudent && selectedStudent.id === studentId) {
+                setSelectedStudent(null);
+              }
               alert('Kind wurde erfolgreich gelöscht.');
             } else {
               alert('Fehler beim Löschen des Kindes.');
@@ -309,7 +306,7 @@ var App = function App() {
       return _ref4.apply(this, arguments);
     };
   }();
-  var saveEntryHandler = /*#__PURE__*/function () {
+  var saveEntry = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(entryData) {
       var newEntry, _t5;
       return _regenerator().w(function (_context5) {
@@ -323,14 +320,14 @@ var App = function App() {
           case 1:
             _context5.p = 1;
             _context5.n = 2;
-            return (0, _database.saveStateForUndo)(db, history, setHistory, setHistoryIndex);
+            return saveStateForUndo(db, history, setHistory, setHistoryIndex);
           case 2:
             if (!entryData.id) {
               _context5.n = 4;
               break;
             }
             _context5.n = 3;
-            return (0, _database.updateEntry)(db, entryData);
+            return updateEntry(db, entryData);
           case 3:
             setEntries(entries.map(function (e) {
               return e.id === entryData.id ? entryData : e;
@@ -339,7 +336,7 @@ var App = function App() {
             break;
           case 4:
             _context5.n = 5;
-            return (0, _database.addEntry)(db, _objectSpread(_objectSpread({}, entryData), {}, {
+            return addEntry(db, _objectSpread(_objectSpread({}, entryData), {}, {
               date: selectedDate
             }));
           case 5:
@@ -358,11 +355,11 @@ var App = function App() {
         }
       }, _callee5, null, [[1, 7]]);
     }));
-    return function saveEntryHandler(_x3) {
+    return function saveEntry(_x3) {
       return _ref5.apply(this, arguments);
     };
   }();
-  var saveSettingsHandler = /*#__PURE__*/function () {
+  var saveSettings = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(newSettings) {
       var _t6;
       return _regenerator().w(function (_context6) {
@@ -394,11 +391,11 @@ var App = function App() {
         }
       }, _callee6, null, [[1, 3]]);
     }));
-    return function saveSettingsHandler(_x4) {
+    return function saveSettings(_x4) {
       return _ref6.apply(this, arguments);
     };
   }();
-  var saveMasterDataHandler = /*#__PURE__*/function () {
+  var saveMasterData = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(newMasterData) {
       var _t7;
       return _regenerator().w(function (_context7) {
@@ -428,7 +425,7 @@ var App = function App() {
         }
       }, _callee7, null, [[1, 3]]);
     }));
-    return function saveMasterDataHandler(_x5) {
+    return function saveMasterData(_x5) {
       return _ref7.apply(this, arguments);
     };
   }();
@@ -438,7 +435,7 @@ var App = function App() {
         while (1) switch (_context8.n) {
           case 0:
             _context8.n = 1;
-            return (0, _database.exportData)(db);
+            return exportData(db);
           case 1:
             return _context8.a(2);
         }
@@ -454,7 +451,7 @@ var App = function App() {
         while (1) switch (_context9.n) {
           case 0:
             _context9.n = 1;
-            return (0, _database.importData)(db, event, setSettings, setMasterData, setStudents, setModal);
+            return importData(db, event, setSettings, setMasterData, setStudents, setModal);
           case 1:
             return _context9.a(2);
         }
@@ -470,7 +467,7 @@ var App = function App() {
         while (1) switch (_context0.n) {
           case 0:
             _context0.n = 1;
-            return (0, _database.undo)(db, history, historyIndex, setHistoryIndex, setStudents);
+            return undo(db, history, historyIndex, setHistoryIndex, setStudents);
           case 1:
             return _context0.a(2);
         }
@@ -486,7 +483,7 @@ var App = function App() {
         while (1) switch (_context1.n) {
           case 0:
             _context1.n = 1;
-            return (0, _database.redo)(db, history, historyIndex, setHistoryIndex, setStudents);
+            return redo(db, history, historyIndex, setHistoryIndex, setStudents);
           case 1:
             return _context1.a(2);
         }
@@ -502,7 +499,7 @@ var App = function App() {
         while (1) switch (_context10.n) {
           case 0:
             _context10.n = 1;
-            return (0, _database.loadSampleData)(db, setMasterData, setStudents);
+            return loadSampleData(db, setMasterData, setStudents);
           case 1:
             return _context10.a(2);
         }
@@ -518,7 +515,7 @@ var App = function App() {
         while (1) switch (_context11.n) {
           case 0:
             _context11.n = 1;
-            return (0, _database.clearAllData)(db, setStudents, setEntries, setSelectedStudent);
+            return clearAllData(db, setStudents, setEntries, setSelectedStudent);
           case 1:
             return _context11.a(2);
         }
@@ -528,14 +525,14 @@ var App = function App() {
       return _ref11.apply(this, arguments);
     };
   }();
-  if (!db) return /*#__PURE__*/_react["default"].createElement("div", null, "Datenbank wird initialisiert...");
-  return /*#__PURE__*/_react["default"].createElement("div", {
+  if (!db) return /*#__PURE__*/React.createElement("div", null, "Datenbank wird initialisiert...");
+  return /*#__PURE__*/React.createElement("div", {
     className: "app"
-  }, /*#__PURE__*/_react["default"].createElement(_Header["default"], {
+  }, /*#__PURE__*/React.createElement(Header, {
     onMenuClick: function onMenuClick() {
       return setNavOpen(!navOpen);
     }
-  }), /*#__PURE__*/_react["default"].createElement(_Toolbar["default"], {
+  }), /*#__PURE__*/React.createElement(Toolbar, {
     selectedStudent: selectedStudent,
     selectedDate: selectedDate,
     onAddStudent: function onAddStudent() {
@@ -559,7 +556,7 @@ var App = function App() {
     onRedo: handleRedo,
     canUndo: historyIndex > 0,
     canRedo: historyIndex < history.length - 1
-  }), /*#__PURE__*/_react["default"].createElement(_Navigation["default"], {
+  }), /*#__PURE__*/React.createElement(Navigation, {
     isOpen: navOpen,
     students: filteredStudents(),
     selectedStudent: selectedStudent,
@@ -584,7 +581,7 @@ var App = function App() {
     onShowHelp: function onShowHelp() {
       return setModal('help');
     }
-  }), /*#__PURE__*/_react["default"].createElement(_MainContent["default"], {
+  }), /*#__PURE__*/React.createElement(MainContent, {
     viewMode: viewMode,
     selectedStudent: selectedStudent,
     selectedDate: selectedDate,
@@ -592,38 +589,38 @@ var App = function App() {
     onEditEntry: function onEditEntry() {
       return setModal('entry');
     }
-  }), modal === 'student' && /*#__PURE__*/_react["default"].createElement(_StudentModal["default"], {
+  }), modal === 'student' && /*#__PURE__*/React.createElement(StudentModal, {
     student: selectedStudent,
     masterData: masterData,
-    onSave: saveStudentHandler,
+    onSave: saveStudent,
     onDelete: deleteStudentHandler,
     onClose: function onClose() {
       return setModal(null);
     }
-  }), modal === 'entry' && /*#__PURE__*/_react["default"].createElement(_EntryModal["default"], {
+  }), modal === 'entry' && /*#__PURE__*/React.createElement(EntryModal, {
     entry: viewMode === 'student' && entries.length > 0 ? entries[0] : null,
     student: selectedStudent,
     students: students,
     masterData: masterData,
-    onSave: saveEntryHandler,
+    onSave: saveEntry,
     onClose: function onClose() {
       return setModal(null);
     }
-  }), modal === 'settings' && /*#__PURE__*/_react["default"].createElement(_SettingsModal["default"], {
+  }), modal === 'settings' && /*#__PURE__*/React.createElement(SettingsModal, {
     settings: settings,
     masterData: masterData,
-    onSave: saveSettingsHandler,
-    onSaveMasterData: saveMasterDataHandler,
+    onSave: saveSettings,
+    onSaveMasterData: saveMasterData,
     onClose: function onClose() {
       return setModal(null);
     }
-  }), modal === 'statistics' && /*#__PURE__*/_react["default"].createElement(_StatisticsModal["default"], {
+  }), modal === 'statistics' && /*#__PURE__*/React.createElement(StatisticsModal, {
     students: students,
     entries: entries,
     onClose: function onClose() {
       return setModal(null);
     }
-  }), modal === 'help' && /*#__PURE__*/_react["default"].createElement(_HelpModal["default"], {
+  }), modal === 'help' && /*#__PURE__*/React.createElement(HelpModal, {
     onLoadSampleData: handleLoadSampleData,
     onClearData: handleClearData,
     onClose: function onClose() {
@@ -631,4 +628,7 @@ var App = function App() {
     }
   }));
 };
-var _default = exports["default"] = App;
+
+// React App rendern
+var root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(/*#__PURE__*/React.createElement(App, null));
