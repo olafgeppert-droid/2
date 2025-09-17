@@ -1,12 +1,6 @@
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var _react = _interopRequireWildcard(require("react"));
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -25,7 +19,7 @@ var StudentModal = function StudentModal(_ref) {
     onSave = _ref.onSave,
     onDelete = _ref.onDelete,
     onClose = _ref.onClose;
-  var _useState = (0, _react.useState)(student || {
+  var _React$useState = React.useState(student || {
       name: '',
       schoolYear: '',
       school: '',
@@ -35,13 +29,13 @@ var StudentModal = function StudentModal(_ref) {
       germanLevel: '',
       notes: ''
     }),
-    _useState2 = _slicedToArray(_useState, 2),
-    formData = _useState2[0],
-    setFormData = _useState2[1];
-  var _useState3 = (0, _react.useState)(false),
-    _useState4 = _slicedToArray(_useState3, 2),
-    showDeleteConfirm = _useState4[0],
-    setShowDeleteConfirm = _useState4[1];
+    _React$useState2 = _slicedToArray(_React$useState, 2),
+    formData = _React$useState2[0],
+    setFormData = _React$useState2[1];
+  var _React$useState3 = React.useState(false),
+    _React$useState4 = _slicedToArray(_React$useState3, 2),
+    showDeleteConfirm = _React$useState4[0],
+    setShowDeleteConfirm = _React$useState4[1];
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     onSave(formData);
@@ -57,34 +51,34 @@ var StudentModal = function StudentModal(_ref) {
   var cancelDelete = function cancelDelete() {
     setShowDeleteConfirm(false);
   };
-  return /*#__PURE__*/_react["default"].createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "modal-overlay"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "modal"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "modal-header"
-  }, /*#__PURE__*/_react["default"].createElement("h2", null, student ? 'Kind bearbeiten' : 'Neues Kind hinzufügen'), /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("h2", null, student ? 'Kind bearbeiten' : 'Neues Kind hinzufügen'), /*#__PURE__*/React.createElement("button", {
     className: "modal-close",
     onClick: onClose
-  }, "\xD7")), showDeleteConfirm ? /*#__PURE__*/_react["default"].createElement("div", {
+  }, "\xD7")), showDeleteConfirm ? /*#__PURE__*/React.createElement("div", {
     className: "delete-confirmation"
-  }, /*#__PURE__*/_react["default"].createElement("h3", null, "Kind l\xF6schen"), /*#__PURE__*/_react["default"].createElement("p", null, "Sind Sie sicher, dass Sie \"", student.name, "\" l\xF6schen m\xF6chten? Diese Aktion kann nicht r\xFCckg\xE4ngig gemacht werden."), /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("h3", null, "Kind l\xF6schen"), /*#__PURE__*/React.createElement("p", null, "Sind Sie sicher, dass Sie \"", student.name, "\" l\xF6schen m\xF6chten? Diese Aktion kann nicht r\xFCckg\xE4ngig gemacht werden."), /*#__PURE__*/React.createElement("div", {
     className: "form-actions"
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "button",
     onClick: cancelDelete
-  }, "Abbrechen"), /*#__PURE__*/_react["default"].createElement("button", {
+  }, "Abbrechen"), /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "button button-danger",
     onClick: confirmDelete
-  }, "Endg\xFCltig l\xF6schen"))) : /*#__PURE__*/_react["default"].createElement("form", {
+  }, "Endg\xFCltig l\xF6schen"))) : /*#__PURE__*/React.createElement("form", {
     onSubmit: handleSubmit
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Name"), /*#__PURE__*/_react["default"].createElement("input", {
+  }, "Name"), /*#__PURE__*/React.createElement("input", {
     type: "text",
     className: "form-input",
     value: formData.name,
@@ -94,11 +88,11 @@ var StudentModal = function StudentModal(_ref) {
       }));
     },
     required: true
-  })), /*#__PURE__*/_react["default"].createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Schuljahr"), /*#__PURE__*/_react["default"].createElement("select", {
+  }, "Schuljahr"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     value: formData.schoolYear,
     onChange: function onChange(e) {
@@ -107,18 +101,18 @@ var StudentModal = function StudentModal(_ref) {
       }));
     },
     required: true
-  }, /*#__PURE__*/_react["default"].createElement("option", {
+  }, /*#__PURE__*/React.createElement("option", {
     value: ""
   }, "Bitte w\xE4hlen"), masterData.schoolYears.map(function (year) {
-    return /*#__PURE__*/_react["default"].createElement("option", {
+    return /*#__PURE__*/React.createElement("option", {
       key: year,
       value: year
     }, year);
-  }))), /*#__PURE__*/_react["default"].createElement("div", {
+  }))), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Schule"), /*#__PURE__*/_react["default"].createElement("select", {
+  }, "Schule"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     value: formData.school,
     onChange: function onChange(e) {
@@ -127,18 +121,18 @@ var StudentModal = function StudentModal(_ref) {
       }));
     },
     required: true
-  }, /*#__PURE__*/_react["default"].createElement("option", {
+  }, /*#__PURE__*/React.createElement("option", {
     value: ""
   }, "Bitte w\xE4hlen"), Object.keys(masterData.schools || {}).map(function (school) {
-    return /*#__PURE__*/_react["default"].createElement("option", {
+    return /*#__PURE__*/React.createElement("option", {
       key: school,
       value: school
     }, school);
-  }))), /*#__PURE__*/_react["default"].createElement("div", {
+  }))), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Klasse"), /*#__PURE__*/_react["default"].createElement("select", {
+  }, "Klasse"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     value: formData.className,
     onChange: function onChange(e) {
@@ -147,18 +141,18 @@ var StudentModal = function StudentModal(_ref) {
       }));
     },
     required: true
-  }, /*#__PURE__*/_react["default"].createElement("option", {
+  }, /*#__PURE__*/React.createElement("option", {
     value: ""
   }, "Bitte w\xE4hlen"), formData.school && ((_masterData$schools$f = masterData.schools[formData.school]) === null || _masterData$schools$f === void 0 ? void 0 : _masterData$schools$f.map(function (className) {
-    return /*#__PURE__*/_react["default"].createElement("option", {
+    return /*#__PURE__*/React.createElement("option", {
       key: className,
       value: className
     }, className);
-  })))), /*#__PURE__*/_react["default"].createElement("div", {
+  })))), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Geschlecht"), /*#__PURE__*/_react["default"].createElement("select", {
+  }, "Geschlecht"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     value: formData.gender,
     onChange: function onChange(e) {
@@ -166,19 +160,19 @@ var StudentModal = function StudentModal(_ref) {
         gender: e.target.value
       }));
     }
-  }, /*#__PURE__*/_react["default"].createElement("option", {
+  }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "Bitte w\xE4hlen"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "Bitte w\xE4hlen"), /*#__PURE__*/React.createElement("option", {
     value: "m\xE4nnlich"
-  }, "M\xE4nnlich"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "M\xE4nnlich"), /*#__PURE__*/React.createElement("option", {
     value: "weiblich"
-  }, "Weiblich"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "Weiblich"), /*#__PURE__*/React.createElement("option", {
     value: "divers"
-  }, "Divers"))), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Divers"))), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Nationalit\xE4t"), /*#__PURE__*/_react["default"].createElement("input", {
+  }, "Nationalit\xE4t"), /*#__PURE__*/React.createElement("input", {
     type: "text",
     className: "form-input",
     value: formData.nationality,
@@ -187,11 +181,11 @@ var StudentModal = function StudentModal(_ref) {
         nationality: e.target.value
       }));
     }
-  })), /*#__PURE__*/_react["default"].createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Deutschkenntnisse"), /*#__PURE__*/_react["default"].createElement("select", {
+  }, "Deutschkenntnisse"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     value: formData.germanLevel,
     onChange: function onChange(e) {
@@ -199,25 +193,25 @@ var StudentModal = function StudentModal(_ref) {
         germanLevel: e.target.value
       }));
     }
-  }, /*#__PURE__*/_react["default"].createElement("option", {
+  }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "Bitte w\xE4hlen"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "Bitte w\xE4hlen"), /*#__PURE__*/React.createElement("option", {
     value: "1"
-  }, "1 - Sehr gut"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "1 - Sehr gut"), /*#__PURE__*/React.createElement("option", {
     value: "2"
-  }, "2 - Gut"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "2 - Gut"), /*#__PURE__*/React.createElement("option", {
     value: "3"
-  }, "3 - Befriedigend"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "3 - Befriedigend"), /*#__PURE__*/React.createElement("option", {
     value: "4"
-  }, "4 - Ausreichend"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "4 - Ausreichend"), /*#__PURE__*/React.createElement("option", {
     value: "5"
-  }, "5 - Mangelhaft"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "5 - Mangelhaft"), /*#__PURE__*/React.createElement("option", {
     value: "6"
-  }, "6 - Ungen\xFCgend"))), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "6 - Ungen\xFCgend"))), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Notizen"), /*#__PURE__*/_react["default"].createElement("textarea", {
+  }, "Notizen"), /*#__PURE__*/React.createElement("textarea", {
     className: "form-textarea",
     value: formData.notes,
     onChange: function onChange(e) {
@@ -225,19 +219,21 @@ var StudentModal = function StudentModal(_ref) {
         notes: e.target.value
       }));
     }
-  })), /*#__PURE__*/_react["default"].createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "form-actions"
-  }, student && /*#__PURE__*/_react["default"].createElement("button", {
+  }, student && /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "button button-danger",
     onClick: handleDelete
-  }, "L\xF6schen"), /*#__PURE__*/_react["default"].createElement("button", {
+  }, "L\xF6schen"), /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "button",
     onClick: onClose
-  }, "Abbrechen"), /*#__PURE__*/_react["default"].createElement("button", {
+  }, "Abbrechen"), /*#__PURE__*/React.createElement("button", {
     type: "submit",
     className: "button button-success"
   }, "Speichern")))));
 };
-var _default = exports["default"] = StudentModal;
+
+// statt "export default"
+window.StudentModal = StudentModal;
