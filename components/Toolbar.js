@@ -1,7 +1,5 @@
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var Toolbar = function Toolbar(_ref) {
   var selectedStudent = _ref.selectedStudent,
     selectedDate = _ref.selectedDate,
@@ -16,61 +14,51 @@ var Toolbar = function Toolbar(_ref) {
     onRedo = _ref.onRedo,
     canUndo = _ref.canUndo,
     canRedo = _ref.canRedo;
-  return /*#__PURE__*/_react["default"].createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "toolbar"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "toolbar-row"
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
     className: "button",
-    onClick: onAddStudent,
-    title: "Neuen Sch\xFCler hinzuf\xFCgen"
-  }, "+ Sch\xFCler"), /*#__PURE__*/_react["default"].createElement("button", {
+    onClick: onAddStudent
+  }, "\uD83D\uDC65 Kind hinzuf\xFCgen"), /*#__PURE__*/React.createElement("button", {
     className: "button",
     onClick: onEditStudent,
-    title: "Ausgew\xE4hlten Sch\xFCler bearbeiten",
     disabled: !selectedStudent
-  }, "\u270E Bearbeiten"), /*#__PURE__*/_react["default"].createElement("span", {
-    className: "toolbar-info"
-  }, selectedStudent ? selectedStudent.name : 'Kein Schüler ausgewählt', " | ", selectedDate || 'Kein Datum')), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "toolbar-row"
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+  }, "\u270F\uFE0F Kind bearbeiten/l\xF6schen"), /*#__PURE__*/React.createElement("button", {
     className: "button",
     onClick: onAddEntry,
-    title: "Neuen Eintrag hinzuf\xFCgen",
-    disabled: !selectedStudent || !selectedDate
-  }, "+ Eintrag"), /*#__PURE__*/_react["default"].createElement("button", {
+    disabled: !selectedStudent && !selectedDate
+  }, "\uD83D\uDCDD Protokoll anlegen"), /*#__PURE__*/React.createElement("button", {
     className: "button",
     onClick: onEditEntry,
-    title: "Ausgew\xE4hlten Eintrag bearbeiten",
-    disabled: !selectedStudent || !selectedDate
-  }, "\u270E Bearbeiten")), /*#__PURE__*/_react["default"].createElement("div", {
+    disabled: !selectedStudent && !selectedDate
+  }, "\uD83D\uDD27 Protokoll bearbeiten/l\xF6schen")), /*#__PURE__*/React.createElement("div", {
     className: "toolbar-row"
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
     className: "button",
-    onClick: onPrint,
-    title: "Drucken"
-  }, "\uD83D\uDDA8 Drucken"), /*#__PURE__*/_react["default"].createElement("button", {
+    onClick: onPrint
+  }, "\uD83D\uDDA8\uFE0F Drucken"), /*#__PURE__*/React.createElement("button", {
     className: "button",
-    onClick: onExport,
-    title: "Exportieren"
-  }, "\u2B07 Export"), /*#__PURE__*/_react["default"].createElement("button", {
-    className: "button",
-    onClick: onImport,
-    title: "Importieren"
-  }, "\u2B06 Import")), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "toolbar-row"
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+    onClick: onExport
+  }, "\uD83D\uDCBE Datenexport"), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "import-file",
+    className: "button"
+  }, "\uD83D\uDCE5 Datenimport", /*#__PURE__*/React.createElement("input", {
+    id: "import-file",
+    type: "file",
+    accept: ".json",
+    style: {
+      display: 'none'
+    },
+    onChange: onImport
+  })), /*#__PURE__*/React.createElement("button", {
     className: "button",
     onClick: onUndo,
-    disabled: !canUndo,
-    title: "R\xFCckg\xE4ngig"
-  }, "\u21BA R\xFCckg\xE4ngig"), /*#__PURE__*/_react["default"].createElement("button", {
+    disabled: !canUndo
+  }, "\u21A9\uFE0F R\xFCckg\xE4ngig"), /*#__PURE__*/React.createElement("button", {
     className: "button",
     onClick: onRedo,
-    disabled: !canRedo,
-    title: "Wiederherstellen"
-  }, "\u21BB Wiederherstellen")));
+    disabled: !canRedo
+  }, "\u21AA\uFE0F Wiederholen")));
 };
-
-// statt "export default"
-window.Toolbar = Toolbar;

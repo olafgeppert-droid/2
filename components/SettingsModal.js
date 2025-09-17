@@ -1,8 +1,6 @@
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-var _react = _interopRequireWildcard(require("react"));
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
@@ -24,11 +22,11 @@ var SettingsModal = function SettingsModal(_ref) {
     onSave = _ref.onSave,
     onSaveMasterData = _ref.onSaveMasterData,
     onClose = _ref.onClose;
-  var _useState = (0, _react.useState)(settings),
+  var _useState = useState(settings),
     _useState2 = _slicedToArray(_useState, 2),
     formData = _useState2[0],
     setFormData = _useState2[1];
-  var _useState3 = (0, _react.useState)(masterData),
+  var _useState3 = useState(masterData),
     _useState4 = _slicedToArray(_useState3, 2),
     masterFormData = _useState4[0],
     setMasterFormData = _useState4[1];
@@ -39,7 +37,7 @@ var SettingsModal = function SettingsModal(_ref) {
   var handleMasterDataSubmit = function handleMasterDataSubmit(e) {
     e.preventDefault();
     onSaveMasterData(masterFormData);
-    onClose();
+    onClose(); // Modal nach dem Speichern schließen
   };
   var addSchoolYear = function addSchoolYear() {
     var newYear = prompt('Neues Schuljahr hinzufügen (Format: YYYY/YYYY):');
@@ -86,24 +84,24 @@ var SettingsModal = function SettingsModal(_ref) {
       })))
     }));
   };
-  return /*#__PURE__*/_react["default"].createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "modal-overlay"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "modal"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "modal-header"
-  }, /*#__PURE__*/_react["default"].createElement("h2", null, "Einstellungen"), /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("h2", null, "Einstellungen"), /*#__PURE__*/React.createElement("button", {
     className: "modal-close",
     onClick: onClose
-  }, "\xD7")), /*#__PURE__*/_react["default"].createElement("form", {
+  }, "\xD7")), /*#__PURE__*/React.createElement("form", {
     onSubmit: handleSubmit
-  }, /*#__PURE__*/_react["default"].createElement("h3", null, "Darstellung"), /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("h3", null, "Darstellung"), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Farbschema"), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Farbschema"), /*#__PURE__*/React.createElement("div", {
     className: "theme-selector"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "theme-option theme-light ".concat(formData.theme === 'light' ? 'selected' : ''),
     onClick: function onClick() {
       return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -111,7 +109,7 @@ var SettingsModal = function SettingsModal(_ref) {
       }));
     },
     title: "Hell"
-  }), /*#__PURE__*/_react["default"].createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "theme-option theme-dark ".concat(formData.theme === 'dark' ? 'selected' : ''),
     onClick: function onClick() {
       return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -119,7 +117,7 @@ var SettingsModal = function SettingsModal(_ref) {
       }));
     },
     title: "Dunkel"
-  }), /*#__PURE__*/_react["default"].createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "theme-option theme-high-contrast ".concat(formData.theme === 'high-contrast' ? 'selected' : ''),
     onClick: function onClick() {
       return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
@@ -127,11 +125,11 @@ var SettingsModal = function SettingsModal(_ref) {
       }));
     },
     title: "Kontrastreich"
-  }))), /*#__PURE__*/_react["default"].createElement("div", {
+  }))), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Schriftgr\xF6\xDFe (Labels)"), /*#__PURE__*/_react["default"].createElement("input", {
+  }, "Schriftgr\xF6\xDFe (Labels)"), /*#__PURE__*/React.createElement("input", {
     type: "range",
     min: "12",
     max: "24",
@@ -141,11 +139,11 @@ var SettingsModal = function SettingsModal(_ref) {
         fontSize: parseInt(e.target.value)
       }));
     }
-  }), /*#__PURE__*/_react["default"].createElement("span", null, formData.fontSize, "px")), /*#__PURE__*/_react["default"].createElement("div", {
+  }), /*#__PURE__*/React.createElement("span", null, formData.fontSize, "px")), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Schriftgr\xF6\xDFe (Eingabefelder)"), /*#__PURE__*/_react["default"].createElement("input", {
+  }, "Schriftgr\xF6\xDFe (Eingabefelder)"), /*#__PURE__*/React.createElement("input", {
     type: "range",
     min: "12",
     max: "24",
@@ -155,38 +153,38 @@ var SettingsModal = function SettingsModal(_ref) {
         inputFontSize: parseInt(e.target.value)
       }));
     }
-  }), /*#__PURE__*/_react["default"].createElement("span", null, formData.inputFontSize, "px")), /*#__PURE__*/_react["default"].createElement("div", {
+  }), /*#__PURE__*/React.createElement("span", null, formData.inputFontSize, "px")), /*#__PURE__*/React.createElement("div", {
     className: "form-actions"
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "button button-danger",
     onClick: onClose
-  }, "Abbrechen"), /*#__PURE__*/_react["default"].createElement("button", {
+  }, "Abbrechen"), /*#__PURE__*/React.createElement("button", {
     type: "submit",
     className: "button button-success"
-  }, "Speichern"))), /*#__PURE__*/_react["default"].createElement("hr", {
+  }, "Speichern"))), /*#__PURE__*/React.createElement("hr", {
     style: {
       margin: '2rem 0'
     }
-  }), /*#__PURE__*/_react["default"].createElement("form", {
+  }), /*#__PURE__*/React.createElement("form", {
     onSubmit: handleMasterDataSubmit
-  }, /*#__PURE__*/_react["default"].createElement("h3", null, "Stammdaten verwalten"), /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("h3", null, "Stammdaten verwalten"), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Schuljahre"), /*#__PURE__*/_react["default"].createElement("div", null, masterFormData.schoolYears.map(function (year) {
-    return /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Schuljahre"), /*#__PURE__*/React.createElement("div", null, masterFormData.schoolYears.map(function (year) {
+    return /*#__PURE__*/React.createElement("div", {
       key: year,
       style: {
         display: 'flex',
         alignItems: 'center',
         marginBottom: '0.5rem'
       }
-    }, /*#__PURE__*/_react["default"].createElement("span", {
+    }, /*#__PURE__*/React.createElement("span", {
       style: {
         flex: 1
       }
-    }, year), /*#__PURE__*/_react["default"].createElement("button", {
+    }, year), /*#__PURE__*/React.createElement("button", {
       type: "button",
       className: "button button-danger",
       style: {
@@ -196,34 +194,34 @@ var SettingsModal = function SettingsModal(_ref) {
         return removeSchoolYear(year);
       }
     }, "L\xF6schen"));
-  }), /*#__PURE__*/_react["default"].createElement("button", {
+  }), /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "button",
     onClick: addSchoolYear
-  }, "Schuljahr hinzuf\xFCgen"))), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Schuljahr hinzuf\xFCgen"))), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Schulen und Klassen"), /*#__PURE__*/_react["default"].createElement("div", null, Object.entries(masterFormData.schools || {}).map(function (_ref2) {
+  }, "Schulen und Klassen"), /*#__PURE__*/React.createElement("div", null, Object.entries(masterFormData.schools || {}).map(function (_ref2) {
     var _ref3 = _slicedToArray(_ref2, 2),
       school = _ref3[0],
       classes = _ref3[1];
-    return /*#__PURE__*/_react["default"].createElement("div", {
+    return /*#__PURE__*/React.createElement("div", {
       key: school,
       style: {
         marginBottom: '1rem'
       }
-    }, /*#__PURE__*/_react["default"].createElement("div", {
+    }, /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         alignItems: 'center',
         marginBottom: '0.5rem'
       }
-    }, /*#__PURE__*/_react["default"].createElement("strong", {
+    }, /*#__PURE__*/React.createElement("strong", {
       style: {
         flex: 1
       }
-    }, school), /*#__PURE__*/_react["default"].createElement("button", {
+    }, school), /*#__PURE__*/React.createElement("button", {
       type: "button",
       className: "button button-danger",
       style: {
@@ -232,23 +230,23 @@ var SettingsModal = function SettingsModal(_ref) {
       onClick: function onClick() {
         return removeSchool(school);
       }
-    }, "Schule l\xF6schen")), /*#__PURE__*/_react["default"].createElement("div", {
+    }, "Schule l\xF6schen")), /*#__PURE__*/React.createElement("div", {
       style: {
         paddingLeft: '1rem'
       }
     }, classes.map(function (className) {
-      return /*#__PURE__*/_react["default"].createElement("div", {
+      return /*#__PURE__*/React.createElement("div", {
         key: className,
         style: {
           display: 'flex',
           alignItems: 'center',
           marginBottom: '0.25rem'
         }
-      }, /*#__PURE__*/_react["default"].createElement("span", {
+      }, /*#__PURE__*/React.createElement("span", {
         style: {
           flex: 1
         }
-      }, className), /*#__PURE__*/_react["default"].createElement("button", {
+      }, className), /*#__PURE__*/React.createElement("button", {
         type: "button",
         className: "button button-danger",
         style: {
@@ -258,7 +256,7 @@ var SettingsModal = function SettingsModal(_ref) {
           return removeClass(school, className);
         }
       }, "L\xF6schen"));
-    }), /*#__PURE__*/_react["default"].createElement("button", {
+    }), /*#__PURE__*/React.createElement("button", {
       type: "button",
       className: "button",
       style: {
@@ -269,21 +267,18 @@ var SettingsModal = function SettingsModal(_ref) {
         return addClass(school);
       }
     }, "Klasse hinzuf\xFCgen")));
-  }), /*#__PURE__*/_react["default"].createElement("button", {
+  }), /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "button",
     onClick: addSchool
-  }, "Schule hinzuf\xFCgen"))), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Schule hinzuf\xFCgen"))), /*#__PURE__*/React.createElement("div", {
     className: "form-actions"
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "button button-danger",
     onClick: onClose
-  }, "Abbrechen"), /*#__PURE__*/_react["default"].createElement("button", {
+  }, "Abbrechen"), /*#__PURE__*/React.createElement("button", {
     type: "submit",
     className: "button button-success"
   }, "Stammdaten speichern")))));
 };
-
-// Globale Registrierung als window-Modul
-window.SettingsModal = SettingsModal;

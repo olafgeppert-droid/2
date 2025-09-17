@@ -1,10 +1,6 @@
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -23,7 +19,7 @@ var StudentModal = function StudentModal(_ref) {
     onSave = _ref.onSave,
     onDelete = _ref.onDelete,
     onClose = _ref.onClose;
-  var _React$useState = React.useState(student || {
+  var _useState = useState(student || {
       name: '',
       schoolYear: '',
       school: '',
@@ -33,13 +29,13 @@ var StudentModal = function StudentModal(_ref) {
       germanLevel: '',
       notes: ''
     }),
-    _React$useState2 = _slicedToArray(_React$useState, 2),
-    formData = _React$useState2[0],
-    setFormData = _React$useState2[1];
-  var _React$useState3 = React.useState(false),
-    _React$useState4 = _slicedToArray(_React$useState3, 2),
-    showDeleteConfirm = _React$useState4[0],
-    setShowDeleteConfirm = _React$useState4[1];
+    _useState2 = _slicedToArray(_useState, 2),
+    formData = _useState2[0],
+    setFormData = _useState2[1];
+  var _useState3 = useState(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    showDeleteConfirm = _useState4[0],
+    setShowDeleteConfirm = _useState4[1];
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     onSave(formData);
@@ -238,4 +234,3 @@ var StudentModal = function StudentModal(_ref) {
     className: "button button-success"
   }, "Speichern")))));
 };
-var _default = exports["default"] = StudentModal;

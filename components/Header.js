@@ -1,7 +1,5 @@
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var Header = function Header(_ref) {
   var onMenuClick = _ref.onMenuClick;
   var currentDate = new Date().toLocaleDateString('de-DE', {
@@ -10,21 +8,12 @@ var Header = function Header(_ref) {
     month: 'long',
     day: 'numeric'
   });
-  var appVersion = "1.3.0"; // <-- Hier die Versionsnummer
-
-  return /*#__PURE__*/_react["default"].createElement("header", {
+  return /*#__PURE__*/React.createElement("header", {
     className: "header"
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
     className: "hamburger-menu",
     onClick: onMenuClick
-  }, "\u2630"), /*#__PURE__*/_react["default"].createElement("h1", null, "Dokumentation p\xE4dagogische Arbeit - Irina Geppert"), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "header-info"
-  }, /*#__PURE__*/_react["default"].createElement("span", {
+  }, "\u2630"), /*#__PURE__*/React.createElement("h1", null, "Dokumentation p\xE4dagogische Arbeit - Irina Geppert"), /*#__PURE__*/React.createElement("span", {
     className: "header-date"
-  }, currentDate), /*#__PURE__*/_react["default"].createElement("span", {
-    className: "header-version"
-  }, appVersion)));
+  }, currentDate));
 };
-
-// Globale Registrierung als window-Module
-window.Header = Header;
