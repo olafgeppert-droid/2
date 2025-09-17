@@ -1,10 +1,6 @@
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.updateStudent = exports.updateEntry = exports.undo = exports.setupDB = exports.saveStateForUndo = exports.saveSettings = exports.saveMasterData = exports.redo = exports.loadSampleData = exports.importData = exports.getSettings = exports.getMasterData = exports.getEntriesByStudentId = exports.getEntriesByDate = exports.exportData = exports.deleteStudent = exports.deleteEntry = exports.clearAllData = exports.addStudent = exports.addEntry = void 0;
 var _umd = require("https://unpkg.com/idb@7/build/umd.js");
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -19,7 +15,7 @@ function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { 
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 // Datenbank-Setup
-var setupDB = exports.setupDB = /*#__PURE__*/function () {
+var setupDB = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
     return _regenerator().w(function (_context) {
       while (1) switch (_context.n) {
@@ -83,7 +79,7 @@ var setupDB = exports.setupDB = /*#__PURE__*/function () {
 }();
 
 // Schüler-Funktionen
-var getEntriesByStudentId = exports.getEntriesByStudentId = /*#__PURE__*/function () {
+var getEntriesByStudentId = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(db, studentId) {
     var index;
     return _regenerator().w(function (_context2) {
@@ -101,7 +97,7 @@ var getEntriesByStudentId = exports.getEntriesByStudentId = /*#__PURE__*/functio
     return _ref2.apply(this, arguments);
   };
 }();
-var getEntriesByDate = exports.getEntriesByDate = /*#__PURE__*/function () {
+var getEntriesByDate = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(db, date) {
     var index;
     return _regenerator().w(function (_context3) {
@@ -119,7 +115,7 @@ var getEntriesByDate = exports.getEntriesByDate = /*#__PURE__*/function () {
     return _ref3.apply(this, arguments);
   };
 }();
-var addStudent = exports.addStudent = /*#__PURE__*/function () {
+var addStudent = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(db, studentData) {
     var id;
     return _regenerator().w(function (_context4) {
@@ -139,7 +135,7 @@ var addStudent = exports.addStudent = /*#__PURE__*/function () {
     return _ref4.apply(this, arguments);
   };
 }();
-var updateStudent = exports.updateStudent = /*#__PURE__*/function () {
+var updateStudent = /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(db, studentData) {
     return _regenerator().w(function (_context5) {
       while (1) switch (_context5.n) {
@@ -155,7 +151,7 @@ var updateStudent = exports.updateStudent = /*#__PURE__*/function () {
     return _ref5.apply(this, arguments);
   };
 }();
-var deleteStudent = exports.deleteStudent = /*#__PURE__*/function () {
+var deleteStudent = /*#__PURE__*/function () {
   var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(db, studentId) {
     var tx, entryStore, index, cursor, _t;
     return _regenerator().w(function (_context6) {
@@ -203,7 +199,7 @@ var deleteStudent = exports.deleteStudent = /*#__PURE__*/function () {
 }();
 
 // Eintrag-Funktionen
-var addEntry = exports.addEntry = /*#__PURE__*/function () {
+var addEntry = /*#__PURE__*/function () {
   var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(db, entryData) {
     var id;
     return _regenerator().w(function (_context7) {
@@ -223,7 +219,7 @@ var addEntry = exports.addEntry = /*#__PURE__*/function () {
     return _ref7.apply(this, arguments);
   };
 }();
-var updateEntry = exports.updateEntry = /*#__PURE__*/function () {
+var updateEntry = /*#__PURE__*/function () {
   var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(db, entryData) {
     return _regenerator().w(function (_context8) {
       while (1) switch (_context8.n) {
@@ -239,7 +235,7 @@ var updateEntry = exports.updateEntry = /*#__PURE__*/function () {
     return _ref8.apply(this, arguments);
   };
 }();
-var deleteEntry = exports.deleteEntry = /*#__PURE__*/function () {
+var deleteEntry = /*#__PURE__*/function () {
   var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(db, entryId) {
     return _regenerator().w(function (_context9) {
       while (1) switch (_context9.n) {
@@ -257,7 +253,7 @@ var deleteEntry = exports.deleteEntry = /*#__PURE__*/function () {
 }();
 
 // Einstellungen-Funktionen
-var getSettings = exports.getSettings = /*#__PURE__*/function () {
+var getSettings = /*#__PURE__*/function () {
   var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(db) {
     return _regenerator().w(function (_context0) {
       while (1) switch (_context0.n) {
@@ -273,7 +269,7 @@ var getSettings = exports.getSettings = /*#__PURE__*/function () {
     return _ref0.apply(this, arguments);
   };
 }();
-var saveSettings = exports.saveSettings = /*#__PURE__*/function () {
+var saveSettings = /*#__PURE__*/function () {
   var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1(db, settings) {
     return _regenerator().w(function (_context1) {
       while (1) switch (_context1.n) {
@@ -293,7 +289,7 @@ var saveSettings = exports.saveSettings = /*#__PURE__*/function () {
 }();
 
 // Master-Daten-Funktionen
-var getMasterData = exports.getMasterData = /*#__PURE__*/function () {
+var getMasterData = /*#__PURE__*/function () {
   var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee10(db) {
     return _regenerator().w(function (_context10) {
       while (1) switch (_context10.n) {
@@ -309,7 +305,7 @@ var getMasterData = exports.getMasterData = /*#__PURE__*/function () {
     return _ref10.apply(this, arguments);
   };
 }();
-var saveMasterData = exports.saveMasterData = /*#__PURE__*/function () {
+var saveMasterData = /*#__PURE__*/function () {
   var _ref11 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee11(db, masterData) {
     return _regenerator().w(function (_context11) {
       while (1) switch (_context11.n) {
@@ -329,7 +325,7 @@ var saveMasterData = exports.saveMasterData = /*#__PURE__*/function () {
 }();
 
 // History-Funktionen
-var saveStateForUndo = exports.saveStateForUndo = /*#__PURE__*/function () {
+var saveStateForUndo = /*#__PURE__*/function () {
   var _ref12 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee12(db, history, setHistory, setHistoryIndex) {
     var allStudents, allEntries, currentState, newHistory, _t2;
     return _regenerator().w(function (_context12) {
@@ -373,7 +369,7 @@ var saveStateForUndo = exports.saveStateForUndo = /*#__PURE__*/function () {
 }();
 
 // Daten-Export-Funktion
-var exportData = exports.exportData = /*#__PURE__*/function () {
+var exportData = /*#__PURE__*/function () {
   var _ref13 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee13(db) {
     var allStudents, allEntries, settingsData, masterData, _exportData, dataStr, dataUri, exportFileDefaultName, linkElement, _t3;
     return _regenerator().w(function (_context13) {
@@ -428,7 +424,7 @@ var exportData = exports.exportData = /*#__PURE__*/function () {
 }();
 
 // Daten-Import-Funktion
-var importData = exports.importData = /*#__PURE__*/function () {
+var importData = /*#__PURE__*/function () {
   var _ref14 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee15(db, event, setSettings, setMasterData, setStudents, setModal) {
     var file, reader;
     return _regenerator().w(function (_context15) {
@@ -562,7 +558,7 @@ var importData = exports.importData = /*#__PURE__*/function () {
 }();
 
 // Undo-Funktion
-var undo = exports.undo = /*#__PURE__*/function () {
+var undo = /*#__PURE__*/function () {
   var _ref16 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee16(db, history, historyIndex, setHistoryIndex, setStudents) {
     var previousState, _iterator3, _step3, student, _iterator4, _step4, entry, allStudents, _t7, _t8, _t9;
     return _regenerator().w(function (_context16) {
@@ -658,7 +654,7 @@ var undo = exports.undo = /*#__PURE__*/function () {
 }();
 
 // Redo-Funktion
-var redo = exports.redo = /*#__PURE__*/function () {
+var redo = /*#__PURE__*/function () {
   var _ref17 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee17(db, history, historyIndex, setHistoryIndex, setStudents) {
     var nextState, _iterator5, _step5, student, _iterator6, _step6, entry, allStudents, _t0, _t1, _t10;
     return _regenerator().w(function (_context17) {
@@ -754,7 +750,7 @@ var redo = exports.redo = /*#__PURE__*/function () {
 }();
 
 // Beispieldaten laden
-var loadSampleData = exports.loadSampleData = /*#__PURE__*/function () {
+var loadSampleData = /*#__PURE__*/function () {
   var _ref18 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee18(db, setMasterData, setStudents) {
     var sampleStudents, sampleEntries, _i, _sampleStudents, student, _i2, _sampleEntries, entry, sampleMasterData, allStudents, _t11;
     return _regenerator().w(function (_context18) {
@@ -877,7 +873,7 @@ var loadSampleData = exports.loadSampleData = /*#__PURE__*/function () {
 }();
 
 // Alle Daten löschen
-var clearAllData = exports.clearAllData = /*#__PURE__*/function () {
+var clearAllData = /*#__PURE__*/function () {
   var _ref19 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee19(db, setStudents, setEntries, setSelectedStudent) {
     var _t12;
     return _regenerator().w(function (_context19) {
@@ -922,4 +918,26 @@ var clearAllData = exports.clearAllData = /*#__PURE__*/function () {
   };
 }();
 
-// Exportiere alle Funktionen
+// Globale Registrierung aller Funktionen (statt "export")
+window.database = {
+  setupDB: setupDB,
+  getEntriesByStudentId: getEntriesByStudentId,
+  getEntriesByDate: getEntriesByDate,
+  addStudent: addStudent,
+  updateStudent: updateStudent,
+  deleteStudent: deleteStudent,
+  addEntry: addEntry,
+  updateEntry: updateEntry,
+  deleteEntry: deleteEntry,
+  getSettings: getSettings,
+  saveSettings: saveSettings,
+  getMasterData: getMasterData,
+  saveMasterData: saveMasterData,
+  saveStateForUndo: saveStateForUndo,
+  exportData: exportData,
+  importData: importData,
+  undo: undo,
+  redo: redo,
+  loadSampleData: loadSampleData,
+  clearAllData: clearAllData
+};
