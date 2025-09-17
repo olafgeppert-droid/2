@@ -43,7 +43,7 @@ var SettingsModal = function SettingsModal(_ref) {
   var handleMasterDataSubmit = function handleMasterDataSubmit(e) {
     e.preventDefault();
     onSaveMasterData(masterFormData);
-    onClose(); // Modal nach dem Speichern schließen
+    onClose();
   };
   var addSchoolYear = function addSchoolYear() {
     var newYear = prompt('Neues Schuljahr hinzufügen (Format: YYYY/YYYY):');
