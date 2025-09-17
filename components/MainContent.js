@@ -3,86 +3,74 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-var MainContent = function MainContent(_ref) {
-  var viewMode = _ref.viewMode,
-    selectedStudent = _ref.selectedStudent,
-    selectedDate = _ref.selectedDate,
-    entries = _ref.entries,
-    onEditEntry = _ref.onEditEntry;
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+const MainContent = _ref => {
+  let {
+    viewMode,
+    selectedStudent,
+    selectedDate,
+    entries,
+    onEditEntry
+  } = _ref;
   if (viewMode === 'student' && selectedStudent) {
-    return /*#__PURE__*/_react["default"].createElement("div", {
+    return /*#__PURE__*/_react.default.createElement("div", {
       className: "main"
-    }, /*#__PURE__*/_react["default"].createElement("h2", null, "Protokolle f\xFCr ", selectedStudent.name), entries.length === 0 ? /*#__PURE__*/_react["default"].createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("h2", null, "Protokolle f\xFCr ", selectedStudent.name), entries.length === 0 ? /*#__PURE__*/_react.default.createElement("div", {
       className: "welcome-screen"
-    }, /*#__PURE__*/_react["default"].createElement("p", null, "Keine Eintr\xE4ge f\xFCr dieses Kind.")) : entries.map(function (entry) {
-      return /*#__PURE__*/_react["default"].createElement(EntryCard, {
-        key: entry.id,
-        entry: entry,
-        student: selectedStudent,
-        onEdit: function onEdit() {
-          return onEditEntry(entry);
-        }
-      });
-    }));
+    }, /*#__PURE__*/_react.default.createElement("p", null, "Keine Eintr\xE4ge f\xFCr dieses Kind.")) : entries.map(entry => /*#__PURE__*/_react.default.createElement(EntryCard, {
+      key: entry.id,
+      entry: entry,
+      student: selectedStudent,
+      onEdit: () => onEditEntry(entry)
+    })));
   } else if (viewMode === 'day' && selectedDate) {
-    var entriesByStudent = {};
-    entries.forEach(function (entry) {
+    const entriesByStudent = {};
+    entries.forEach(entry => {
       if (!entriesByStudent[entry.studentId]) {
         entriesByStudent[entry.studentId] = [];
       }
       entriesByStudent[entry.studentId].push(entry);
     });
-    return /*#__PURE__*/_react["default"].createElement("div", {
+    return /*#__PURE__*/_react.default.createElement("div", {
       className: "main"
-    }, /*#__PURE__*/_react["default"].createElement("h2", null, "Eintr\xE4ge f\xFCr ", new Date(selectedDate).toLocaleDateString('de-DE')), Object.keys(entriesByStudent).length === 0 ? /*#__PURE__*/_react["default"].createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("h2", null, "Eintr\xE4ge f\xFCr ", new Date(selectedDate).toLocaleDateString('de-DE')), Object.keys(entriesByStudent).length === 0 ? /*#__PURE__*/_react.default.createElement("div", {
       className: "welcome-screen"
-    }, /*#__PURE__*/_react["default"].createElement("p", null, "Keine Eintr\xE4ge f\xFCr dieses Datum.")) : Object.entries(entriesByStudent).map(function (_ref2) {
-      var _ref3 = _slicedToArray(_ref2, 2),
-        studentId = _ref3[0],
-        studentEntries = _ref3[1];
-      return /*#__PURE__*/_react["default"].createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("p", null, "Keine Eintr\xE4ge f\xFCr dieses Datum.")) : Object.entries(entriesByStudent).map(_ref2 => {
+      let [studentId, studentEntries] = _ref2;
+      return /*#__PURE__*/_react.default.createElement("div", {
         key: studentId,
         style: {
           marginBottom: '2rem'
         }
-      }, /*#__PURE__*/_react["default"].createElement("h3", null, studentEntries[0].studentName || "Sch\xFCler ".concat(studentId)), studentEntries.map(function (entry) {
-        return /*#__PURE__*/_react["default"].createElement(EntryCard, {
-          key: entry.id,
-          entry: entry,
-          onEdit: function onEdit() {
-            return onEditEntry(entry);
-          }
-        });
-      }));
+      }, /*#__PURE__*/_react.default.createElement("h3", null, studentEntries[0].studentName || "Sch\xFCler ".concat(studentId)), studentEntries.map(entry => /*#__PURE__*/_react.default.createElement(EntryCard, {
+        key: entry.id,
+        entry: entry,
+        onEdit: () => onEditEntry(entry)
+      })));
     }));
   } else {
-    return /*#__PURE__*/_react["default"].createElement("div", {
+    return /*#__PURE__*/_react.default.createElement("div", {
       className: "main"
-    }, /*#__PURE__*/_react["default"].createElement("div", {
+    }, /*#__PURE__*/_react.default.createElement("div", {
       className: "welcome-screen"
-    }, /*#__PURE__*/_react["default"].createElement("h2", null, "Willkommen!"), /*#__PURE__*/_react["default"].createElement("p", null, "W\xE4hlen Sie links ein Kind aus der Liste, um die Protokolle anzuzeigen, oder w\xE4hlen Sie einen Tag, um alle Eintr\xE4ge f\xFCr diesen Tag zu sehen.")));
+    }, /*#__PURE__*/_react.default.createElement("h2", null, "Willkommen!"), /*#__PURE__*/_react.default.createElement("p", null, "W\xE4hlen Sie links ein Kind aus der Liste, um die Protokolle anzuzeigen, oder w\xE4hlen Sie einen Tag, um alle Eintr\xE4ge f\xFCr diesen Tag zu sehen.")));
   }
 };
-var EntryCard = function EntryCard(_ref4) {
-  var entry = _ref4.entry,
-    student = _ref4.student,
-    onEdit = _ref4.onEdit;
-  return /*#__PURE__*/_react["default"].createElement("div", {
+const EntryCard = _ref3 => {
+  let {
+    entry,
+    student,
+    onEdit
+  } = _ref3;
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "entry-card"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "entry-header"
-  }, /*#__PURE__*/_react["default"].createElement("span", null, entry.subject), /*#__PURE__*/_react["default"].createElement("span", null, new Date(entry.date).toLocaleDateString('de-DE'))), student && /*#__PURE__*/_react["default"].createElement("p", null, /*#__PURE__*/_react["default"].createElement("strong", null, "Sch\xFCler:"), " ", student.name), /*#__PURE__*/_react["default"].createElement("p", null, /*#__PURE__*/_react["default"].createElement("strong", null, "Beobachtungen:"), " ", entry.observations), /*#__PURE__*/_react["default"].createElement("p", null, /*#__PURE__*/_react["default"].createElement("strong", null, "Ma\xDFnahmen:"), " ", entry.measures), /*#__PURE__*/_react["default"].createElement("p", null, /*#__PURE__*/_react["default"].createElement("strong", null, "Erfolg:"), " ", entry.erfolg), /*#__PURE__*/_react["default"].createElement("p", null, /*#__PURE__*/_react["default"].createElement("strong", null, "Bewertung:"), " ", entry.erfolgRating), /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("span", null, entry.subject), /*#__PURE__*/_react.default.createElement("span", null, new Date(entry.date).toLocaleDateString('de-DE'))), student && /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Sch\xFCler:"), " ", student.name), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Beobachtungen:"), " ", entry.observations), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Ma\xDFnahmen:"), " ", entry.measures), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Erfolg:"), " ", entry.erfolg), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Bewertung:"), " ", entry.erfolgRating), /*#__PURE__*/_react.default.createElement("button", {
     className: "button",
     onClick: onEdit
   }, "Bearbeiten"));
 };
-var _default = exports["default"] = MainContent;
+var _default = exports.default = MainContent;
