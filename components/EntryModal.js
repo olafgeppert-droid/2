@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 var _react = _interopRequireWildcard(require("react"));
-var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -41,144 +40,116 @@ var EntryModal = function EntryModal(_ref) {
     e.preventDefault();
     onSave(formData);
   };
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-    className: "modal-overlay",
-    children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      className: "modal",
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-        className: "modal-header",
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h2", {
-          children: entry ? 'Eintrag bearbeiten' : 'Neuer Eintrag'
-        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-          className: "modal-close",
-          onClick: onClose,
-          children: "\xD7"
-        })]
-      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("form", {
-        onSubmit: handleSubmit,
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Kind"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("select", {
-            className: "form-select",
-            value: formData.studentId,
-            onChange: function onChange(e) {
-              return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                studentId: parseInt(e.target.value)
-              }));
-            },
-            required: true,
-            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
-              value: "",
-              children: "Bitte w\xE4hlen"
-            }), students.map(function (s) {
-              return /*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
-                value: s.id,
-                children: s.name
-              }, s.id);
-            })]
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Thema"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
-            type: "text",
-            className: "form-input",
-            value: formData.subject,
-            onChange: function onChange(e) {
-              return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                subject: e.target.value
-              }));
-            },
-            required: true
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Beobachtungen"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("textarea", {
-            className: "form-textarea",
-            value: formData.observations,
-            onChange: function onChange(e) {
-              return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                observations: e.target.value
-              }));
-            },
-            required: true
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Ma\xDFnahmen"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("textarea", {
-            className: "form-textarea",
-            value: formData.measures,
-            onChange: function onChange(e) {
-              return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                measures: e.target.value
-              }));
-            },
-            required: true
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Erfolg"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("textarea", {
-            className: "form-textarea",
-            value: formData.erfolg,
-            onChange: function onChange(e) {
-              return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                erfolg: e.target.value
-              }));
-            }
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Bewertung"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("select", {
-            className: "form-select",
-            value: formData.erfolgRating,
-            onChange: function onChange(e) {
-              return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                erfolgRating: e.target.value
-              }));
-            },
-            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
-              value: "",
-              children: "Keine Bewertung"
-            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
-              value: "positiv",
-              children: "Positiv"
-            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("option", {
-              value: "negativ",
-              children: "Negativ"
-            })]
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-actions",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-            type: "button",
-            className: "button button-danger",
-            onClick: onClose,
-            children: "Abbrechen"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-            type: "submit",
-            className: "button button-success",
-            children: "Speichern"
-          })]
-        })]
-      })]
-    })
-  });
+  return /*#__PURE__*/_react["default"].createElement("div", {
+    className: "modal-overlay"
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "modal"
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "modal-header"
+  }, /*#__PURE__*/_react["default"].createElement("h2", null, entry ? 'Eintrag bearbeiten' : 'Neuer Eintrag'), /*#__PURE__*/_react["default"].createElement("button", {
+    className: "modal-close",
+    onClick: onClose
+  }, "\xD7")), /*#__PURE__*/_react["default"].createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Kind"), /*#__PURE__*/_react["default"].createElement("select", {
+    className: "form-select",
+    value: formData.studentId,
+    onChange: function onChange(e) {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        studentId: parseInt(e.target.value)
+      }));
+    },
+    required: true
+  }, /*#__PURE__*/_react["default"].createElement("option", {
+    value: ""
+  }, "Bitte w\xE4hlen"), students.map(function (s) {
+    return /*#__PURE__*/_react["default"].createElement("option", {
+      key: s.id,
+      value: s.id
+    }, s.name);
+  }))), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Thema"), /*#__PURE__*/_react["default"].createElement("input", {
+    type: "text",
+    className: "form-input",
+    value: formData.subject,
+    onChange: function onChange(e) {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        subject: e.target.value
+      }));
+    },
+    required: true
+  })), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Beobachtungen"), /*#__PURE__*/_react["default"].createElement("textarea", {
+    className: "form-textarea",
+    value: formData.observations,
+    onChange: function onChange(e) {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        observations: e.target.value
+      }));
+    },
+    required: true
+  })), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Ma\xDFnahmen"), /*#__PURE__*/_react["default"].createElement("textarea", {
+    className: "form-textarea",
+    value: formData.measures,
+    onChange: function onChange(e) {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        measures: e.target.value
+      }));
+    },
+    required: true
+  })), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Erfolg"), /*#__PURE__*/_react["default"].createElement("textarea", {
+    className: "form-textarea",
+    value: formData.erfolg,
+    onChange: function onChange(e) {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        erfolg: e.target.value
+      }));
+    }
+  })), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Bewertung"), /*#__PURE__*/_react["default"].createElement("select", {
+    className: "form-select",
+    value: formData.erfolgRating,
+    onChange: function onChange(e) {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        erfolgRating: e.target.value
+      }));
+    }
+  }, /*#__PURE__*/_react["default"].createElement("option", {
+    value: ""
+  }, "Keine Bewertung"), /*#__PURE__*/_react["default"].createElement("option", {
+    value: "positiv"
+  }, "Positiv"), /*#__PURE__*/_react["default"].createElement("option", {
+    value: "negativ"
+  }, "Negativ"))), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-actions"
+  }, /*#__PURE__*/_react["default"].createElement("button", {
+    type: "button",
+    className: "button button-danger",
+    onClick: onClose
+  }, "Abbrechen"), /*#__PURE__*/_react["default"].createElement("button", {
+    type: "submit",
+    className: "button button-success"
+  }, "Speichern")))));
 };
 var _default = exports["default"] = EntryModal;

@@ -2,7 +2,6 @@
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 var _react = _interopRequireWildcard(require("react"));
-var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -87,251 +86,203 @@ var SettingsModal = function SettingsModal(_ref) {
       })))
     }));
   };
-  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-    className: "modal-overlay",
-    children: /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      className: "modal",
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-        className: "modal-header",
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h2", {
-          children: "Einstellungen"
-        }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-          className: "modal-close",
-          onClick: onClose,
-          children: "\xD7"
-        })]
-      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("form", {
-        onSubmit: handleSubmit,
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h3", {
-          children: "Darstellung"
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Farbschema"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-            className: "theme-selector",
-            children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-              className: "theme-option theme-light ".concat(formData.theme === 'light' ? 'selected' : ''),
-              onClick: function onClick() {
-                return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                  theme: 'light'
-                }));
-              },
-              title: "Hell"
-            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-              className: "theme-option theme-dark ".concat(formData.theme === 'dark' ? 'selected' : ''),
-              onClick: function onClick() {
-                return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                  theme: 'dark'
-                }));
-              },
-              title: "Dunkel"
-            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-              className: "theme-option theme-high-contrast ".concat(formData.theme === 'high-contrast' ? 'selected' : ''),
-              onClick: function onClick() {
-                return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                  theme: 'high-contrast'
-                }));
-              },
-              title: "Kontrastreich"
-            })]
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Schriftgr\xF6\xDFe (Labels)"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
-            type: "range",
-            min: "12",
-            max: "24",
-            value: formData.fontSize,
-            onChange: function onChange(e) {
-              return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                fontSize: parseInt(e.target.value)
-              }));
-            }
-          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("span", {
-            children: [formData.fontSize, "px"]
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Schriftgr\xF6\xDFe (Eingabefelder)"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
-            type: "range",
-            min: "12",
-            max: "24",
-            value: formData.inputFontSize,
-            onChange: function onChange(e) {
-              return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-                inputFontSize: parseInt(e.target.value)
-              }));
-            }
-          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("span", {
-            children: [formData.inputFontSize, "px"]
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-actions",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-            type: "button",
-            className: "button button-danger",
-            onClick: onClose,
-            children: "Abbrechen"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-            type: "submit",
-            className: "button button-success",
-            children: "Speichern"
-          })]
-        })]
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("hr", {
+  return /*#__PURE__*/_react["default"].createElement("div", {
+    className: "modal-overlay"
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "modal"
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "modal-header"
+  }, /*#__PURE__*/_react["default"].createElement("h2", null, "Einstellungen"), /*#__PURE__*/_react["default"].createElement("button", {
+    className: "modal-close",
+    onClick: onClose
+  }, "\xD7")), /*#__PURE__*/_react["default"].createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/_react["default"].createElement("h3", null, "Darstellung"), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Farbschema"), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "theme-selector"
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "theme-option theme-light ".concat(formData.theme === 'light' ? 'selected' : ''),
+    onClick: function onClick() {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        theme: 'light'
+      }));
+    },
+    title: "Hell"
+  }), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "theme-option theme-dark ".concat(formData.theme === 'dark' ? 'selected' : ''),
+    onClick: function onClick() {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        theme: 'dark'
+      }));
+    },
+    title: "Dunkel"
+  }), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "theme-option theme-high-contrast ".concat(formData.theme === 'high-contrast' ? 'selected' : ''),
+    onClick: function onClick() {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        theme: 'high-contrast'
+      }));
+    },
+    title: "Kontrastreich"
+  }))), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Schriftgr\xF6\xDFe (Labels)"), /*#__PURE__*/_react["default"].createElement("input", {
+    type: "range",
+    min: "12",
+    max: "24",
+    value: formData.fontSize,
+    onChange: function onChange(e) {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        fontSize: parseInt(e.target.value)
+      }));
+    }
+  }), /*#__PURE__*/_react["default"].createElement("span", null, formData.fontSize, "px")), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Schriftgr\xF6\xDFe (Eingabefelder)"), /*#__PURE__*/_react["default"].createElement("input", {
+    type: "range",
+    min: "12",
+    max: "24",
+    value: formData.inputFontSize,
+    onChange: function onChange(e) {
+      return setFormData(_objectSpread(_objectSpread({}, formData), {}, {
+        inputFontSize: parseInt(e.target.value)
+      }));
+    }
+  }), /*#__PURE__*/_react["default"].createElement("span", null, formData.inputFontSize, "px")), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-actions"
+  }, /*#__PURE__*/_react["default"].createElement("button", {
+    type: "button",
+    className: "button button-danger",
+    onClick: onClose
+  }, "Abbrechen"), /*#__PURE__*/_react["default"].createElement("button", {
+    type: "submit",
+    className: "button button-success"
+  }, "Speichern"))), /*#__PURE__*/_react["default"].createElement("hr", {
+    style: {
+      margin: '2rem 0'
+    }
+  }), /*#__PURE__*/_react["default"].createElement("form", {
+    onSubmit: handleMasterDataSubmit
+  }, /*#__PURE__*/_react["default"].createElement("h3", null, "Stammdaten verwalten"), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Schuljahre"), /*#__PURE__*/_react["default"].createElement("div", null, masterFormData.schoolYears.map(function (year) {
+    return /*#__PURE__*/_react["default"].createElement("div", {
+      key: year,
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '0.5rem'
+      }
+    }, /*#__PURE__*/_react["default"].createElement("span", {
+      style: {
+        flex: 1
+      }
+    }, year), /*#__PURE__*/_react["default"].createElement("button", {
+      type: "button",
+      className: "button button-danger",
+      style: {
+        padding: '0.25rem 0.5rem'
+      },
+      onClick: function onClick() {
+        return removeSchoolYear(year);
+      }
+    }, "L\xF6schen"));
+  }), /*#__PURE__*/_react["default"].createElement("button", {
+    type: "button",
+    className: "button",
+    onClick: addSchoolYear
+  }, "Schuljahr hinzuf\xFCgen"))), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/_react["default"].createElement("label", {
+    className: "form-label"
+  }, "Schulen und Klassen"), /*#__PURE__*/_react["default"].createElement("div", null, Object.entries(masterFormData.schools || {}).map(function (_ref2) {
+    var _ref3 = _slicedToArray(_ref2, 2),
+      school = _ref3[0],
+      classes = _ref3[1];
+    return /*#__PURE__*/_react["default"].createElement("div", {
+      key: school,
+      style: {
+        marginBottom: '1rem'
+      }
+    }, /*#__PURE__*/_react["default"].createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '0.5rem'
+      }
+    }, /*#__PURE__*/_react["default"].createElement("strong", {
+      style: {
+        flex: 1
+      }
+    }, school), /*#__PURE__*/_react["default"].createElement("button", {
+      type: "button",
+      className: "button button-danger",
+      style: {
+        padding: '0.25rem 0.5rem'
+      },
+      onClick: function onClick() {
+        return removeSchool(school);
+      }
+    }, "Schule l\xF6schen")), /*#__PURE__*/_react["default"].createElement("div", {
+      style: {
+        paddingLeft: '1rem'
+      }
+    }, classes.map(function (className) {
+      return /*#__PURE__*/_react["default"].createElement("div", {
+        key: className,
         style: {
-          margin: '2rem 0'
+          display: 'flex',
+          alignItems: 'center',
+          marginBottom: '0.25rem'
         }
-      }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("form", {
-        onSubmit: handleMasterDataSubmit,
-        children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("h3", {
-          children: "Stammdaten verwalten"
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Schuljahre"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-            children: [masterFormData.schoolYears.map(function (year) {
-              return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-                style: {
-                  display: 'flex',
-                  alignItems: 'center',
-                  marginBottom: '0.5rem'
-                },
-                children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-                  style: {
-                    flex: 1
-                  },
-                  children: year
-                }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-                  type: "button",
-                  className: "button button-danger",
-                  style: {
-                    padding: '0.25rem 0.5rem'
-                  },
-                  onClick: function onClick() {
-                    return removeSchoolYear(year);
-                  },
-                  children: "L\xF6schen"
-                })]
-              }, year);
-            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-              type: "button",
-              className: "button",
-              onClick: addSchoolYear,
-              children: "Schuljahr hinzuf\xFCgen"
-            })]
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("label", {
-            className: "form-label",
-            children: "Schulen und Klassen"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-            children: [Object.entries(masterFormData.schools || {}).map(function (_ref2) {
-              var _ref3 = _slicedToArray(_ref2, 2),
-                school = _ref3[0],
-                classes = _ref3[1];
-              return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-                style: {
-                  marginBottom: '1rem'
-                },
-                children: [/*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-                  style: {
-                    display: 'flex',
-                    alignItems: 'center',
-                    marginBottom: '0.5rem'
-                  },
-                  children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("strong", {
-                    style: {
-                      flex: 1
-                    },
-                    children: school
-                  }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-                    type: "button",
-                    className: "button button-danger",
-                    style: {
-                      padding: '0.25rem 0.5rem'
-                    },
-                    onClick: function onClick() {
-                      return removeSchool(school);
-                    },
-                    children: "Schule l\xF6schen"
-                  })]
-                }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-                  style: {
-                    paddingLeft: '1rem'
-                  },
-                  children: [classes.map(function (className) {
-                    return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-                      style: {
-                        display: 'flex',
-                        alignItems: 'center',
-                        marginBottom: '0.25rem'
-                      },
-                      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-                        style: {
-                          flex: 1
-                        },
-                        children: className
-                      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-                        type: "button",
-                        className: "button button-danger",
-                        style: {
-                          padding: '0.25rem 0.5rem'
-                        },
-                        onClick: function onClick() {
-                          return removeClass(school, className);
-                        },
-                        children: "L\xF6schen"
-                      })]
-                    }, className);
-                  }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-                    type: "button",
-                    className: "button",
-                    style: {
-                      padding: '0.25rem 0.5rem',
-                      marginTop: '0.5rem'
-                    },
-                    onClick: function onClick() {
-                      return addClass(school);
-                    },
-                    children: "Klasse hinzuf\xFCgen"
-                  })]
-                })]
-              }, school);
-            }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-              type: "button",
-              className: "button",
-              onClick: addSchool,
-              children: "Schule hinzuf\xFCgen"
-            })]
-          })]
-        }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-          className: "form-actions",
-          children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-            type: "button",
-            className: "button button-danger",
-            onClick: onClose,
-            children: "Abbrechen"
-          }), /*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-            type: "submit",
-            className: "button button-success",
-            children: "Stammdaten speichern"
-          })]
-        })]
-      })]
-    })
-  });
+      }, /*#__PURE__*/_react["default"].createElement("span", {
+        style: {
+          flex: 1
+        }
+      }, className), /*#__PURE__*/_react["default"].createElement("button", {
+        type: "button",
+        className: "button button-danger",
+        style: {
+          padding: '0.25rem 0.5rem'
+        },
+        onClick: function onClick() {
+          return removeClass(school, className);
+        }
+      }, "L\xF6schen"));
+    }), /*#__PURE__*/_react["default"].createElement("button", {
+      type: "button",
+      className: "button",
+      style: {
+        padding: '0.25rem 0.5rem',
+        marginTop: '0.5rem'
+      },
+      onClick: function onClick() {
+        return addClass(school);
+      }
+    }, "Klasse hinzuf\xFCgen")));
+  }), /*#__PURE__*/_react["default"].createElement("button", {
+    type: "button",
+    className: "button",
+    onClick: addSchool
+  }, "Schule hinzuf\xFCgen"))), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "form-actions"
+  }, /*#__PURE__*/_react["default"].createElement("button", {
+    type: "button",
+    className: "button button-danger",
+    onClick: onClose
+  }, "Abbrechen"), /*#__PURE__*/_react["default"].createElement("button", {
+    type: "submit",
+    className: "button button-success"
+  }, "Stammdaten speichern")))));
 };
 
 // Globale Registrierung als window-Modul

@@ -16,7 +16,6 @@ var _SettingsModal = _interopRequireDefault(require("./components/SettingsModal.
 var _StatisticsModal = _interopRequireDefault(require("./components/StatisticsModal.js"));
 var _HelpModal = _interopRequireDefault(require("./components/HelpModal.js"));
 var _database = require("./database.js");
-var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t8 in e) "default" !== _t8 && {}.hasOwnProperty.call(e, _t8) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t8)) && (i.get || i.set) ? o(f, _t8, i) : f[_t8] = e[_t8]); return f; })(e, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -529,110 +528,107 @@ var App = function App() {
       return _ref11.apply(this, arguments);
     };
   }();
-  if (!db) return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
-    children: "Datenbank wird initialisiert..."
-  });
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-    className: "app",
-    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)(_Header["default"], {
-      onMenuClick: function onMenuClick() {
-        return setNavOpen(!navOpen);
-      }
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Toolbar["default"], {
-      selectedStudent: selectedStudent,
-      selectedDate: selectedDate,
-      onAddStudent: function onAddStudent() {
-        return setModal('student');
-      },
-      onEditStudent: function onEditStudent() {
-        return setModal('student');
-      },
-      onAddEntry: function onAddEntry() {
-        return setModal('entry');
-      },
-      onEditEntry: function onEditEntry() {
-        return setModal('entry');
-      },
-      onPrint: function onPrint() {
-        return window.print();
-      },
-      onExport: handleExport,
-      onImport: handleImport,
-      onUndo: handleUndo,
-      onRedo: handleRedo,
-      canUndo: historyIndex > 0,
-      canRedo: historyIndex < history.length - 1
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_Navigation["default"], {
-      isOpen: navOpen,
-      students: filteredStudents(),
-      selectedStudent: selectedStudent,
-      selectedDate: selectedDate,
-      filters: filters,
-      masterData: masterData,
-      onStudentSelect: function onStudentSelect(student) {
-        setSelectedStudent(student);
-        setViewMode('student');
-      },
-      onDateSelect: function onDateSelect(date) {
-        setSelectedDate(date);
-        setViewMode('day');
-      },
-      onFilterChange: setFilters,
-      onShowStats: function onShowStats() {
-        return setModal('statistics');
-      },
-      onShowSettings: function onShowSettings() {
-        return setModal('settings');
-      },
-      onShowHelp: function onShowHelp() {
-        return setModal('help');
-      }
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)(_MainContent["default"], {
-      viewMode: viewMode,
-      selectedStudent: selectedStudent,
-      selectedDate: selectedDate,
-      entries: entries,
-      onEditEntry: function onEditEntry() {
-        return setModal('entry');
-      }
-    }), modal === 'student' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_StudentModal["default"], {
-      student: selectedStudent,
-      masterData: masterData,
-      onSave: saveStudentHandler,
-      onDelete: deleteStudentHandler,
-      onClose: function onClose() {
-        return setModal(null);
-      }
-    }), modal === 'entry' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_EntryModal["default"], {
-      entry: viewMode === 'student' && entries.length > 0 ? entries[0] : null,
-      student: selectedStudent,
-      students: students,
-      masterData: masterData,
-      onSave: saveEntryHandler,
-      onClose: function onClose() {
-        return setModal(null);
-      }
-    }), modal === 'settings' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_SettingsModal["default"], {
-      settings: settings,
-      masterData: masterData,
-      onSave: saveSettingsHandler,
-      onSaveMasterData: saveMasterDataHandler,
-      onClose: function onClose() {
-        return setModal(null);
-      }
-    }), modal === 'statistics' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_StatisticsModal["default"], {
-      students: students,
-      entries: entries,
-      onClose: function onClose() {
-        return setModal(null);
-      }
-    }), modal === 'help' && /*#__PURE__*/(0, _jsxRuntime.jsx)(_HelpModal["default"], {
-      onLoadSampleData: handleLoadSampleData,
-      onClearData: handleClearData,
-      onClose: function onClose() {
-        return setModal(null);
-      }
-    })]
-  });
+  if (!db) return /*#__PURE__*/_react["default"].createElement("div", null, "Datenbank wird initialisiert...");
+  return /*#__PURE__*/_react["default"].createElement("div", {
+    className: "app"
+  }, /*#__PURE__*/_react["default"].createElement(_Header["default"], {
+    onMenuClick: function onMenuClick() {
+      return setNavOpen(!navOpen);
+    }
+  }), /*#__PURE__*/_react["default"].createElement(_Toolbar["default"], {
+    selectedStudent: selectedStudent,
+    selectedDate: selectedDate,
+    onAddStudent: function onAddStudent() {
+      return setModal('student');
+    },
+    onEditStudent: function onEditStudent() {
+      return setModal('student');
+    },
+    onAddEntry: function onAddEntry() {
+      return setModal('entry');
+    },
+    onEditEntry: function onEditEntry() {
+      return setModal('entry');
+    },
+    onPrint: function onPrint() {
+      return window.print();
+    },
+    onExport: handleExport,
+    onImport: handleImport,
+    onUndo: handleUndo,
+    onRedo: handleRedo,
+    canUndo: historyIndex > 0,
+    canRedo: historyIndex < history.length - 1
+  }), /*#__PURE__*/_react["default"].createElement(_Navigation["default"], {
+    isOpen: navOpen,
+    students: filteredStudents(),
+    selectedStudent: selectedStudent,
+    selectedDate: selectedDate,
+    filters: filters,
+    masterData: masterData,
+    onStudentSelect: function onStudentSelect(student) {
+      setSelectedStudent(student);
+      setViewMode('student');
+    },
+    onDateSelect: function onDateSelect(date) {
+      setSelectedDate(date);
+      setViewMode('day');
+    },
+    onFilterChange: setFilters,
+    onShowStats: function onShowStats() {
+      return setModal('statistics');
+    },
+    onShowSettings: function onShowSettings() {
+      return setModal('settings');
+    },
+    onShowHelp: function onShowHelp() {
+      return setModal('help');
+    }
+  }), /*#__PURE__*/_react["default"].createElement(_MainContent["default"], {
+    viewMode: viewMode,
+    selectedStudent: selectedStudent,
+    selectedDate: selectedDate,
+    entries: entries,
+    onEditEntry: function onEditEntry() {
+      return setModal('entry');
+    }
+  }), modal === 'student' && /*#__PURE__*/_react["default"].createElement(_StudentModal["default"], {
+    student: selectedStudent,
+    masterData: masterData,
+    onSave: saveStudentHandler,
+    onDelete: deleteStudentHandler,
+    onClose: function onClose() {
+      return setModal(null);
+    }
+  }), modal === 'entry' && /*#__PURE__*/_react["default"].createElement(_EntryModal["default"], {
+    entry: viewMode === 'student' && entries.length > 0 ? entries[0] : null,
+    student: selectedStudent,
+    students: students,
+    masterData: masterData,
+    onSave: saveEntryHandler,
+    onClose: function onClose() {
+      return setModal(null);
+    }
+  }), modal === 'settings' && /*#__PURE__*/_react["default"].createElement(_SettingsModal["default"], {
+    settings: settings,
+    masterData: masterData,
+    onSave: saveSettingsHandler,
+    onSaveMasterData: saveMasterDataHandler,
+    onClose: function onClose() {
+      return setModal(null);
+    }
+  }), modal === 'statistics' && /*#__PURE__*/_react["default"].createElement(_StatisticsModal["default"], {
+    students: students,
+    entries: entries,
+    onClose: function onClose() {
+      return setModal(null);
+    }
+  }), modal === 'help' && /*#__PURE__*/_react["default"].createElement(_HelpModal["default"], {
+    onLoadSampleData: handleLoadSampleData,
+    onClearData: handleClearData,
+    onClose: function onClose() {
+      return setModal(null);
+    }
+  }));
 };
 var _default = exports["default"] = App;

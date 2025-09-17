@@ -1,7 +1,6 @@
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
-var _jsxRuntime = require("react/jsx-runtime");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var Header = function Header(_ref) {
   var onMenuClick = _ref.onMenuClick;
@@ -13,25 +12,18 @@ var Header = function Header(_ref) {
   });
   var appVersion = "1.3.0"; // <-- Hier die Versionsnummer
 
-  return /*#__PURE__*/(0, _jsxRuntime.jsxs)("header", {
-    className: "header",
-    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("button", {
-      className: "hamburger-menu",
-      onClick: onMenuClick,
-      children: "\u2630"
-    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("h1", {
-      children: "Dokumentation p\xE4dagogische Arbeit - Irina Geppert"
-    }), /*#__PURE__*/(0, _jsxRuntime.jsxs)("div", {
-      className: "header-info",
-      children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-        className: "header-date",
-        children: currentDate
-      }), /*#__PURE__*/(0, _jsxRuntime.jsx)("span", {
-        className: "header-version",
-        children: appVersion
-      })]
-    })]
-  });
+  return /*#__PURE__*/_react["default"].createElement("header", {
+    className: "header"
+  }, /*#__PURE__*/_react["default"].createElement("button", {
+    className: "hamburger-menu",
+    onClick: onMenuClick
+  }, "\u2630"), /*#__PURE__*/_react["default"].createElement("h1", null, "Dokumentation p\xE4dagogische Arbeit - Irina Geppert"), /*#__PURE__*/_react["default"].createElement("div", {
+    className: "header-info"
+  }, /*#__PURE__*/_react["default"].createElement("span", {
+    className: "header-date"
+  }, currentDate), /*#__PURE__*/_react["default"].createElement("span", {
+    className: "header-version"
+  }, appVersion)));
 };
 
 // Globale Registrierung als window-Module
