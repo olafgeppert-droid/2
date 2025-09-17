@@ -198,3 +198,13 @@ var calculateStatistics = function calculateStatistics(students, entries) {
     ratings: ratings
   };
 };
+
+// Globale Registrierung aller Funktionen
+window.helpers = {
+  filterStudents: filterStudents,
+  applySettings: applySettings,
+  saveEntry: saveEntry,
+  saveSettingsHelper: saveSettingsHelper,
+  saveMasterDataHelper: saveMasterDataHelper,
+  calculateStatistics: calculateStatistics
+};

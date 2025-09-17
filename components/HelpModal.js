@@ -1,9 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
 var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var HelpModal = function HelpModal(_ref) {
@@ -42,4 +38,6 @@ var HelpModal = function HelpModal(_ref) {
     }
   }, "Version ", version)));
 };
-var _default = exports["default"] = HelpModal;
+
+// Globale Registrierung als window-Modul
+window.HelpModal = HelpModal;

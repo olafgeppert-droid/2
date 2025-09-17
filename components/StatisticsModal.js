@@ -1,9 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
 var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var StatisticsModal = function StatisticsModal(_ref) {
@@ -28,8 +24,6 @@ var StatisticsModal = function StatisticsModal(_ref) {
     onClick: onClose
   }, "Schlie\xDFen"))));
 };
-
-// calculateStatistics Funktion muss definiert oder importiert werden
 function calculateStatistics(students, entries) {
   var totalStudents = students.length;
   var totalEntries = entries.length;
@@ -56,4 +50,6 @@ function calculateStatistics(students, entries) {
     ratings: ratings
   };
 }
-var _default = exports["default"] = StatisticsModal;
+
+// Statt "export default" global verfügbar machen
+window.StatisticsModal = StatisticsModal;

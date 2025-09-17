@@ -1,6 +1,12 @@
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -26,11 +32,11 @@ var Navigation = function Navigation(_ref) {
     onShowStats = _ref.onShowStats,
     onShowSettings = _ref.onShowSettings,
     onShowHelp = _ref.onShowHelp;
-  var _React$useState = React.useState(filters.search),
+  var _React$useState = _react["default"].useState(filters.search),
     _React$useState2 = _slicedToArray(_React$useState, 2),
     searchTerm = _React$useState2[0],
     setSearchTerm = _React$useState2[1];
-  var _React$useState3 = React.useState(filters),
+  var _React$useState3 = _react["default"].useState(filters),
     _React$useState4 = _slicedToArray(_React$useState3, 2),
     localFilters = _React$useState4[0],
     setLocalFilters = _React$useState4[1];
@@ -58,138 +64,136 @@ var Navigation = function Navigation(_ref) {
     onFilterChange(clearedFilters);
   };
   var hasActiveFilters = localFilters.search || localFilters.schoolYear || localFilters.school || localFilters.className;
-  return /*#__PURE__*/React.createElement("nav", {
+  return /*#__PURE__*/_react["default"].createElement("nav", {
     className: "nav ".concat(isOpen ? 'open' : '')
-  }, /*#__PURE__*/React.createElement("h3", null, "Navigation"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react["default"].createElement("h3", null, "Navigation"), /*#__PURE__*/_react["default"].createElement("div", {
     className: "search-filter"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react["default"].createElement("div", {
     className: "filter-group"
-  }, /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/_react["default"].createElement("input", {
     type: "text",
     className: "search-input",
     placeholder: "\uD83D\uDD0D Kind suchen...",
     value: searchTerm,
     onChange: handleSearchChange
-  })), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/_react["default"].createElement("div", {
     className: "filter-group"
-  }, /*#__PURE__*/React.createElement("label", {
+  }, /*#__PURE__*/_react["default"].createElement("label", {
     className: "filter-label"
-  }, "Schuljahr"), /*#__PURE__*/React.createElement("select", {
+  }, "Schuljahr"), /*#__PURE__*/_react["default"].createElement("select", {
     className: "filter-select",
     value: localFilters.schoolYear,
     onChange: function onChange(e) {
       return handleFilterChange('schoolYear', e.target.value);
     }
-  }, /*#__PURE__*/React.createElement("option", {
+  }, /*#__PURE__*/_react["default"].createElement("option", {
     value: ""
   }, "Alle Schuljahre"), masterData.schoolYears && masterData.schoolYears.map(function (year) {
-    return /*#__PURE__*/React.createElement("option", {
+    return /*#__PURE__*/_react["default"].createElement("option", {
       key: year,
       value: year
     }, year);
-  }))), /*#__PURE__*/React.createElement("div", {
+  }))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "filter-group"
-  }, /*#__PURE__*/React.createElement("label", {
+  }, /*#__PURE__*/_react["default"].createElement("label", {
     className: "filter-label"
-  }, "Schule"), /*#__PURE__*/React.createElement("select", {
+  }, "Schule"), /*#__PURE__*/_react["default"].createElement("select", {
     className: "filter-select",
     value: localFilters.school,
     onChange: function onChange(e) {
       return handleFilterChange('school', e.target.value);
     }
-  }, /*#__PURE__*/React.createElement("option", {
+  }, /*#__PURE__*/_react["default"].createElement("option", {
     value: ""
   }, "Alle Schulen"), masterData.schools && Object.keys(masterData.schools).map(function (school) {
-    return /*#__PURE__*/React.createElement("option", {
+    return /*#__PURE__*/_react["default"].createElement("option", {
       key: school,
       value: school
     }, school);
-  }))), /*#__PURE__*/React.createElement("div", {
+  }))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "filter-group"
-  }, /*#__PURE__*/React.createElement("label", {
+  }, /*#__PURE__*/_react["default"].createElement("label", {
     className: "filter-label"
-  }, "Klasse"), /*#__PURE__*/React.createElement("select", {
+  }, "Klasse"), /*#__PURE__*/_react["default"].createElement("select", {
     className: "filter-select",
     value: localFilters.className,
     onChange: function onChange(e) {
       return handleFilterChange('className', e.target.value);
     },
     disabled: !localFilters.school
-  }, /*#__PURE__*/React.createElement("option", {
+  }, /*#__PURE__*/_react["default"].createElement("option", {
     value: ""
   }, "Alle Klassen"), localFilters.school && ((_masterData$schools$l = masterData.schools[localFilters.school]) === null || _masterData$schools$l === void 0 ? void 0 : _masterData$schools$l.map(function (className) {
-    return /*#__PURE__*/React.createElement("option", {
+    return /*#__PURE__*/_react["default"].createElement("option", {
       key: className,
       value: className
     }, className);
-  })))), /*#__PURE__*/React.createElement("div", {
+  })))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "filter-group"
-  }, /*#__PURE__*/React.createElement("label", {
+  }, /*#__PURE__*/_react["default"].createElement("label", {
     className: "filter-label"
-  }, "Tag"), /*#__PURE__*/React.createElement("input", {
+  }, "Tag"), /*#__PURE__*/_react["default"].createElement("input", {
     type: "date",
     className: "filter-select",
     value: selectedDate,
     onChange: function onChange(e) {
       return onDateSelect(e.target.value);
     }
-  })), hasActiveFilters && /*#__PURE__*/React.createElement("button", {
+  })), hasActiveFilters && /*#__PURE__*/_react["default"].createElement("button", {
     className: "button button-warning",
     onClick: clearFilters,
     style: {
       width: '100%',
       marginTop: '0.5rem'
     }
-  }, "\u274C Filter l\xF6schen")), /*#__PURE__*/React.createElement("div", {
+  }, "\u274C Filter l\xF6schen")), /*#__PURE__*/_react["default"].createElement("div", {
     className: "students-section"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react["default"].createElement("div", {
     className: "section-header"
-  }, /*#__PURE__*/React.createElement("h4", null, "Kind"), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/_react["default"].createElement("h4", null, "Kind"), /*#__PURE__*/_react["default"].createElement("span", {
     className: "student-count"
-  }, students.length)), students.length === 0 ? /*#__PURE__*/React.createElement("div", {
+  }, students.length)), students.length === 0 ? /*#__PURE__*/_react["default"].createElement("div", {
     className: "empty-state"
-  }, /*#__PURE__*/React.createElement("p", null, "Keine Kinder gefunden"), hasActiveFilters && /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/_react["default"].createElement("p", null, "Keine Kinder gefunden"), hasActiveFilters && /*#__PURE__*/_react["default"].createElement("button", {
     className: "button",
     onClick: clearFilters,
     style: {
       marginTop: '10px',
       width: '100%'
     }
-  }, "Filter zur\xFCcksetzen")) : /*#__PURE__*/React.createElement("ul", {
+  }, "Filter zur\xFCcksetzen")) : /*#__PURE__*/_react["default"].createElement("ul", {
     className: "students-list"
   }, students.map(function (student) {
-    return /*#__PURE__*/React.createElement("li", {
+    return /*#__PURE__*/_react["default"].createElement("li", {
       key: student.id,
       className: "student-item ".concat((selectedStudent === null || selectedStudent === void 0 ? void 0 : selectedStudent.id) === student.id ? 'selected' : ''),
       onClick: function onClick() {
         return onStudentSelect(student);
       }
-    }, /*#__PURE__*/React.createElement("span", {
+    }, /*#__PURE__*/_react["default"].createElement("span", {
       className: "student-avatar"
-    }, student.gender === 'weiblich' ? '👧' : student.gender === 'männlich' ? '👦' : '👤'), /*#__PURE__*/React.createElement("div", {
+    }, student.gender === 'weiblich' ? '👧' : student.gender === 'männlich' ? '👦' : '👤'), /*#__PURE__*/_react["default"].createElement("div", {
       className: "student-info"
-    }, /*#__PURE__*/React.createElement("div", {
+    }, /*#__PURE__*/_react["default"].createElement("div", {
       className: "student-name"
-    }, student.name), /*#__PURE__*/React.createElement("div", {
+    }, student.name), /*#__PURE__*/_react["default"].createElement("div", {
       className: "student-details"
     }, student.className)));
-  }))), /*#__PURE__*/React.createElement("div", {
+  }))), /*#__PURE__*/_react["default"].createElement("div", {
     className: "nav-footer"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react["default"].createElement("div", {
     className: "footer-section"
-  }, /*#__PURE__*/React.createElement("h4", null, "Aktionen"), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/_react["default"].createElement("h4", null, "Aktionen"), /*#__PURE__*/_react["default"].createElement("button", {
     className: "button button-info",
     onClick: onShowStats
-  }, "\uD83D\uDCCA Statistiken"), /*#__PURE__*/React.createElement("button", {
+  }, "\uD83D\uDCCA Statistiken"), /*#__PURE__*/_react["default"].createElement("button", {
     className: "button button-info",
     onClick: onShowSettings
-  }, "\u2699\uFE0F Einstellungen"), /*#__PURE__*/React.createElement("button", {
+  }, "\u2699\uFE0F Einstellungen"), /*#__PURE__*/_react["default"].createElement("button", {
     className: "button button-info",
     onClick: onShowHelp
-  }, "\u2753 Hilfe")), /*#__PURE__*/React.createElement("div", {
+  }, "\u2753 Hilfe")), /*#__PURE__*/_react["default"].createElement("div", {
     className: "app-info"
-  }, /*#__PURE__*/React.createElement("p", null, "Willkommen! W\xE4hlen Sie ein Kind aus der Liste."))));
+  }, /*#__PURE__*/_react["default"].createElement("p", null, "Willkommen! W\xE4hlen Sie ein Kind aus der Liste."))));
 };
-
-// statt "export default"
-window.Navigation = Navigation;
+var _default = exports["default"] = Navigation;
