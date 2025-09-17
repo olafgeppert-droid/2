@@ -1,9 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
 var Header = function Header(_ref) {
   var onMenuClick = _ref.onMenuClick;
   var currentDate = new Date().toLocaleDateString('de-DE', {
@@ -27,4 +23,6 @@ var Header = function Header(_ref) {
     className: "header-version"
   }, appVersion)));
 };
-var _default = exports["default"] = Header;
+
+// statt "export default"
+window.Header = Header;
