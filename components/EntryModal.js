@@ -1,12 +1,6 @@
 "use strict";
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var _react = _interopRequireWildcard(require("react"));
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -25,7 +19,7 @@ var EntryModal = function EntryModal(_ref) {
     masterData = _ref.masterData,
     onSave = _ref.onSave,
     onClose = _ref.onClose;
-  var _useState = (0, _react.useState)(entry || {
+  var _React$useState = React.useState(entry || {
       studentId: (student === null || student === void 0 ? void 0 : student.id) || '',
       subject: '',
       observations: '',
@@ -33,29 +27,29 @@ var EntryModal = function EntryModal(_ref) {
       erfolg: '',
       erfolgRating: ''
     }),
-    _useState2 = _slicedToArray(_useState, 2),
-    formData = _useState2[0],
-    setFormData = _useState2[1];
+    _React$useState2 = _slicedToArray(_React$useState, 2),
+    formData = _React$useState2[0],
+    setFormData = _React$useState2[1];
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     onSave(formData);
   };
-  return /*#__PURE__*/_react["default"].createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "modal-overlay"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "modal"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "modal-header"
-  }, /*#__PURE__*/_react["default"].createElement("h2", null, entry ? 'Eintrag bearbeiten' : 'Neuer Eintrag'), /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("h2", null, entry ? 'Eintrag bearbeiten' : 'Neuer Eintrag'), /*#__PURE__*/React.createElement("button", {
     className: "modal-close",
     onClick: onClose
-  }, "\xD7")), /*#__PURE__*/_react["default"].createElement("form", {
+  }, "\xD7")), /*#__PURE__*/React.createElement("form", {
     onSubmit: handleSubmit
-  }, /*#__PURE__*/_react["default"].createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Kind"), /*#__PURE__*/_react["default"].createElement("select", {
+  }, "Kind"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     value: formData.studentId,
     onChange: function onChange(e) {
@@ -64,18 +58,18 @@ var EntryModal = function EntryModal(_ref) {
       }));
     },
     required: true
-  }, /*#__PURE__*/_react["default"].createElement("option", {
+  }, /*#__PURE__*/React.createElement("option", {
     value: ""
   }, "Bitte w\xE4hlen"), students.map(function (student) {
-    return /*#__PURE__*/_react["default"].createElement("option", {
+    return /*#__PURE__*/React.createElement("option", {
       key: student.id,
       value: student.id
     }, student.name);
-  }))), /*#__PURE__*/_react["default"].createElement("div", {
+  }))), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Thema"), /*#__PURE__*/_react["default"].createElement("input", {
+  }, "Thema"), /*#__PURE__*/React.createElement("input", {
     type: "text",
     className: "form-input",
     value: formData.subject,
@@ -85,11 +79,11 @@ var EntryModal = function EntryModal(_ref) {
       }));
     },
     required: true
-  })), /*#__PURE__*/_react["default"].createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Beobachtungen"), /*#__PURE__*/_react["default"].createElement("textarea", {
+  }, "Beobachtungen"), /*#__PURE__*/React.createElement("textarea", {
     className: "form-textarea",
     value: formData.observations,
     onChange: function onChange(e) {
@@ -98,11 +92,11 @@ var EntryModal = function EntryModal(_ref) {
       }));
     },
     required: true
-  })), /*#__PURE__*/_react["default"].createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Ma\xDFnahmen"), /*#__PURE__*/_react["default"].createElement("textarea", {
+  }, "Ma\xDFnahmen"), /*#__PURE__*/React.createElement("textarea", {
     className: "form-textarea",
     value: formData.measures,
     onChange: function onChange(e) {
@@ -111,11 +105,11 @@ var EntryModal = function EntryModal(_ref) {
       }));
     },
     required: true
-  })), /*#__PURE__*/_react["default"].createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Erfolg"), /*#__PURE__*/_react["default"].createElement("textarea", {
+  }, "Erfolg"), /*#__PURE__*/React.createElement("textarea", {
     className: "form-textarea",
     value: formData.erfolg,
     onChange: function onChange(e) {
@@ -123,11 +117,11 @@ var EntryModal = function EntryModal(_ref) {
         erfolg: e.target.value
       }));
     }
-  })), /*#__PURE__*/_react["default"].createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/_react["default"].createElement("label", {
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-label"
-  }, "Bewertung"), /*#__PURE__*/_react["default"].createElement("select", {
+  }, "Bewertung"), /*#__PURE__*/React.createElement("select", {
     className: "form-select",
     value: formData.erfolgRating,
     onChange: function onChange(e) {
@@ -135,21 +129,23 @@ var EntryModal = function EntryModal(_ref) {
         erfolgRating: e.target.value
       }));
     }
-  }, /*#__PURE__*/_react["default"].createElement("option", {
+  }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "Keine Bewertung"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "Keine Bewertung"), /*#__PURE__*/React.createElement("option", {
     value: "positiv"
-  }, "Positiv"), /*#__PURE__*/_react["default"].createElement("option", {
+  }, "Positiv"), /*#__PURE__*/React.createElement("option", {
     value: "negativ"
-  }, "Negativ"))), /*#__PURE__*/_react["default"].createElement("div", {
+  }, "Negativ"))), /*#__PURE__*/React.createElement("div", {
     className: "form-actions"
-  }, /*#__PURE__*/_react["default"].createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "button button-danger",
     onClick: onClose
-  }, "Abbrechen"), /*#__PURE__*/_react["default"].createElement("button", {
+  }, "Abbrechen"), /*#__PURE__*/React.createElement("button", {
     type: "submit",
     className: "button button-success"
   }, "Speichern")))));
 };
-var _default = exports["default"] = EntryModal;
+
+// statt "export default"
+window.EntryModal = EntryModal;
