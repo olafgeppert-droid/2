@@ -10,6 +10,20 @@
     
     <!-- IDB Bibliothek hinzufügen -->
     <script src="https://unpkg.com/idb@7/build/umd.js"></script>
+    
+    <style>
+      /* Temporäre Lösung für Scrollbars auf mobilen Geräten */
+      @media (max-width: 768px) {
+        body {
+          overflow: auto !important;
+          height: auto !important;
+        }
+        #root {
+          overflow: auto !important;
+          height: auto !important;
+        }
+      }
+    </style>
     <script type="module" crossorigin src="/Paedagogische-Fachkraft/assets/index-f2082f53.js"></script>
     <link rel="stylesheet" href="/Paedagogische-Fachkraft/assets/index-c8ca5902.css">
   </head>
