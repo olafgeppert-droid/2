@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="hell">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pädagogische Dokumentation</title>
 
+    <!-- NEUE CSS-IMPORTS -->
     
     
+    
+    
+    <!-- ALTE CSS-IMPORTS ENTFERNT -->
+    <!-- <link rel="stylesheet" href="./styles/main.css" /> -->
+    <!-- <link rel="stylesheet" href="./styles/components.css" /> -->
     
     <!-- IDB Bibliothek hinzufügen -->
     <script src="https://unpkg.com/idb@7/build/umd.js"></script>
@@ -38,19 +44,19 @@
         }
       }
 
-      /* CSS-Farbvariablen für das farbige Theme */
+      /* CSS-Farbvariablen für das farbige Theme - AKTUALISIERT FÜR NEUES SYSTEM */
       :root {
-        --sidebar-bg: #fed7aa;
-        --primary-color: #dc2626;
-        --secondary-color: #b91c1c;
+        --sidebar-bg-custom: #fed7aa;
+        --primary-color-custom: #dc2626;
+        --secondary-color-custom: #b91c1c;
         --toolbar-bg-custom: #f8fafc;
-        --background-color: #fef7ed;
-        --card-bg: #ffffff;
+        --background-color-custom: #fef7ed;
+        --card-bg-custom: #ffffff;
         --modal-bg-custom: #ffffff;
       }
 
-      /* Stile für das farbige Theme */
-      [data-theme="colored"].custom-colors-applied {
+      /* Stile für das farbige Theme - AKTUALISIERT FÜR NEUES SYSTEM */
+      [data-theme="farbig"].custom-colors-applied {
         --sidebar-bg: var(--sidebar-bg-custom, #fed7aa);
         --primary-color: var(--primary-color-custom, #dc2626);
         --secondary-color: var(--secondary-color-custom, #b91c1c);
@@ -71,9 +77,19 @@
           border-radius: 6px;
         }
       }
+
+      /* Initiales Laden ohne Flackern - FÜR NEUES THEME-SYSTEM */
+      body:not([data-theme]) {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      body[data-theme] {
+        opacity: 1;
+      }
     </style>
-    <script type="module" crossorigin src="/Paedagogische-Fachkraft/assets/index-48bf2d8a.js"></script>
-    <link rel="stylesheet" href="/Paedagogische-Fachkraft/assets/index-f9cde5a8.css">
+    <script type="module" crossorigin src="/Paedagogische-Fachkraft/assets/index-0a43b458.js"></script>
+    <link rel="stylesheet" href="/Paedagogische-Fachkraft/assets/index-91fd8288.css">
   </head>
   <body>
     <div id="root"></div>
